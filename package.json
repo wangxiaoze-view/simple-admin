@@ -5,9 +5,10 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "eslint . --ext .vue,.js,.ts,.jsx,.tsx --fix",
-    "lint:style": "stylelint \"./**/*.{css,less,vue,html}\" --fix",
-    "format": "prettier --write \"./**/*.{html,vue,ts,js,json,md}\"",
+    "lint": "eslint --fix --ext .vue,.js,.jsx ./ --max-warnings 0",
+    "lint:fix": "eslint --ext .vue,.js,jsx ./ --max-warnings 0 --fix",
+    "stylelint": "stylelint src/**/*.{html,vue,sass,less}",
+    "stylelint:fix": "stylelint --cache --fix src/**/*.{html,vue,vss,sass,less}",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -17,6 +18,11 @@
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
+    "eslint-define-config": "^1.7.0",
+    "@commitlint/cli": "^17.1.2",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "@commitlint/config-conventional": "^17.1.0",
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
     "@vue/cli-plugin-babel": "~5.0.0",
@@ -42,5 +48,30 @@
     "stylelint-config-standard-vue": "^1.0.0",
     "stylelint-less": "^1.0.6",
     "stylelint-order": "^5.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.vue": [
+      "prettier --write",
+      "eslint --fix",
+      "stylelint --fix"
+    ],
+    "*.{html,vue,vss,sass,less}": [
+      "prettier --write",
+      "stylelint --fix"
+    ],
+    "package.json": [
+      "prettier --write"
+    ],
+    "*.md": [
+      "prettier --write"
+    ]
   }
 }
