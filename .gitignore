@@ -35,3 +35,6 @@ dist-ssr
 # 过滤自动生成的ts文件
 auto-imports.d.ts
 components.d.ts
+
+
+.stylelintcache

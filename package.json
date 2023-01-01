@@ -12,26 +12,34 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "axios": "^1.2.2",
     "core-js": "^3.8.3",
+    "element-plus": "^2.2.28",
+    "mockjs": "^1.1.0",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.0.28",
     "register-service-worker": "^1.7.2",
     "vue": "^3.2.13",
+    "vue-cookies": "^1.8.2",
+    "vue-i18n": "^9.2.2",
     "vue-router": "^4.0.3"
   },
   "devDependencies": {
-    "eslint-define-config": "^1.7.0",
-    "@commitlint/cli": "^17.1.2",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0",
-    "@commitlint/config-conventional": "^17.1.0",
     "@babel/core": "^7.12.16",
     "@babel/eslint-parser": "^7.12.16",
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-plugin-pwa": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "compression-webpack-plugin": "^10.0.0",
     "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.3.0",
+    "eslint-define-config": "^1.7.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-vue": "^8.0.3",
     "husky": "^8.0.2",
@@ -47,7 +55,10 @@
     "stylelint-config-standard": "^29.0.0",
     "stylelint-config-standard-vue": "^1.0.0",
     "stylelint-less": "^1.0.6",
-    "stylelint-order": "^5.0.0"
+    "stylelint-order": "^5.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "unplugin-auto-import": "^0.12.1",
+    "unplugin-vue-components": "^0.22.12"
   },
   "gitHooks": {
     "pre-commit": "lint-staged",
@@ -63,7 +74,7 @@
       "eslint --fix",
       "stylelint --fix"
     ],
-    "*.{html,vue,vss,sass,less}": [
+    "*.{vue,vss,sass,less}": [
       "prettier --write",
       "stylelint --fix"
     ],
