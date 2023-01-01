@@ -1,10 +1,9 @@
 const { defineConfig } = require('@vue/cli-service');
-const { resolve } = require('path');
+const { resolve, relative } = require('path');
 const AutoImport = require('unplugin-auto-import/webpack');
 const Components = require('unplugin-vue-components/webpack');
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
-const UglifyPlugin = require('uglifyjs-webpack-plugin');
 
 const {
   transpileDependencies,
@@ -13,7 +12,6 @@ const {
   lintOnSave,
   assetsDir,
   productionSourceMap,
-  css,
   pwa,
   devServer,
   pluginOptions,
@@ -29,7 +27,27 @@ module.exports = defineConfig({
   lintOnSave,
   assetsDir,
   productionSourceMap,
-  css,
+  css: {
+    // 是否使用css分离插件
+    extract: false,
+    // 开启 CSS source maps，一般不建议开启
+    sourceMap: false,
+    // css预设器配置项
+    loaderOptions: {
+      sass: {
+        sassOptions: { outputStyle: 'expanded' },
+        additionalData(content, { rootContext, resourcePath }) {
+          const relativePath = relative(rootContext, resourcePath);
+          if (
+            relativePath.replace(/\\/g, '/') !==
+            'src/lib/styles/variables/variables.module.scss'
+          )
+            return `@use "sass:math";@use "src/lib/styles/variables/variables.module.scss" as *;${content}`;
+          return content;
+        },
+      },
+    },
+  },
   // PWA 插件相关配置
   pwa,
   // webpack-dev-server 相关配置 https://webpack.js.org/configuration/dev-server/
@@ -52,6 +70,19 @@ module.exports = defineConfig({
     config.plugins.delete('preload');
     // 压缩代码
     config.optimization.minimize(true);
+
+    config.plugin('uglifyjs-plugin').use('uglifyjs-webpack-plugin', [
+      {
+        uglifyOptions: {
+          warnings: false,
+          compress: {
+            drop_console: true,
+            drop_debugger: false,
+            pure_funcs: ['console.log'],
+          },
+        },
+      },
+    ]);
   },
 
   configureWebpack: (config) => {
@@ -90,18 +121,6 @@ module.exports = defineConfig({
             },
           },
         },
-        minimizer: [
-          new UglifyPlugin({
-            uglifyOptions: {
-              compress: {
-                warnings: false,
-                drop_console: true, // console
-                drop_debugger: false,
-                pure_funcs: ['console.log'], // 移除console
-              },
-            },
-          }),
-        ],
       };
       // 取消webpack警告的性能提示
       config.performance = {
