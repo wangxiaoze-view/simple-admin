@@ -4,7 +4,6 @@ const AutoImport = require('unplugin-auto-import/webpack');
 const Components = require('unplugin-vue-components/webpack');
 const { ElementPlusResolver } = require('unplugin-vue-components/resolvers');
 const CompressionWebpackPlugin = require('compression-webpack-plugin');
-const UglifyPlugin = require('uglifyjs-webpack-plugin');
 
 const {
   transpileDependencies,
@@ -71,6 +70,19 @@ module.exports = defineConfig({
     config.plugins.delete('preload');
     // 压缩代码
     config.optimization.minimize(true);
+
+    config.plugin('uglifyjs-plugin').use('uglifyjs-webpack-plugin', [
+      {
+        uglifyOptions: {
+          warnings: false,
+          compress: {
+            drop_console: true,
+            drop_debugger: false,
+            pure_funcs: ['console.log'],
+          },
+        },
+      },
+    ]);
   },
 
   configureWebpack: (config) => {
@@ -109,18 +121,6 @@ module.exports = defineConfig({
             },
           },
         },
-        minimizer: [
-          new UglifyPlugin({
-            uglifyOptions: {
-              compress: {
-                warnings: false,
-                drop_console: true, // console
-                drop_debugger: false,
-                pure_funcs: ['console.log'], // 移除console
-              },
-            },
-          }),
-        ],
       };
       // 取消webpack警告的性能提示
       config.performance = {
