@@ -101,6 +101,7 @@
         <a
           href="https://github.com/vuejs/awesome-vue"
           target="_blank"
+          class="1"
           rel="noopener"
         >
           awesome-vue
