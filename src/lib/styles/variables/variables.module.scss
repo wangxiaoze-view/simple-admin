@@ -1,0 +1,26 @@
+// 存储变量
+$base-color-blue: #1890ff;
+
+// zIndex 默认层级
+$sim-z-index: 1000;
+
+// 菜单背景
+$sim-menu-background: #61c0bf;
+
+// logo 的高度
+$sim-logo-height: 60px;
+// 左侧导航未折叠的宽度
+$sim-left-menu-width: 260px;
+// 右侧内容区域未折叠的宽度
+$sim-right-content-width: calc(100% - #{$sim-left-menu-width});
+// 左侧导航已折叠的宽度
+$sim-left-menu-min-width: 64px;
+// 右侧内容区域已折叠的宽度
+$sim-right-content-min-width: calc(100% - #{$sim-left-menu-width});
+//默认动画
+$sim-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border 0s,
+  color 0.2s, font-size 0s;
+
+// 菜单
+$sim-menu-color: hsla(0, 0%, 90%, 0.75);
+$sim-menu-active-color: hsla(0, 0%, 90%, 0.75);
