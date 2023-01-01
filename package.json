@@ -56,6 +56,7 @@
     "stylelint-config-standard-vue": "^1.0.0",
     "stylelint-less": "^1.0.6",
     "stylelint-order": "^5.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "unplugin-auto-import": "^0.12.1",
     "unplugin-vue-components": "^0.22.12"
   },
