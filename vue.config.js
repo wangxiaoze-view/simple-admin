@@ -180,53 +180,53 @@
 // })
 
 const path = require('path')
-const AutoImport = require('unplugin-auto-import/webpack')
-const Components = require('unplugin-vue-components/webpack')
-const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
+// const AutoImport = require('unplugin-auto-import/webpack')
+// const Components = require('unplugin-vue-components/webpack')
+// const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 module.exports = {
-  //  是否兼容ie
-  transpileDependencies: true,
-  //  公共路径
-  publicPath: '',
-  //  打包的目录
-  outputDir: 'dist',
-  //  保存是是否lint操作
-  lintOnSave: true,
-  //  静态资源打包目录
-  assetsDir: 'static',
-  //  是否生成map文件
-  productionSourceMap: false,
-  //  pwa
-  pwa: {},
-  //  devServer
-  devServer: {
-    // 局域网和本地访问
-    host: '0.0.0.0',
-    port: 17501,
-    hot: true,
-    open: false,
-    historyApiFallback: true,
-    allowedHosts: 'all',
-  },
-  // 第三方插件配置 https://www.npmjs.com/package/vue-cli-plugin-style-resources-loader
-  pluginOptions: {},
-  chainWebpack: (config) => {
-    // 路径配置
-    config.resolve.alias.set('@', path.resolve('src'))
-    //
-    config.optimization.runtimeChunk('single')
-  },
-  configureWebpack: {
-    plugins: [
-      AutoImport({
-        resolvers: [ElementPlusResolver()],
-      }),
-      Components({
-        resolvers: [ElementPlusResolver()],
-      }),
-    ],
-  },
+  // //  是否兼容ie
+  // transpileDependencies: true,
+  // //  公共路径
+  // publicPath: './',
+  // //  打包的目录
+  // outputDir: 'dist',
+  // //  保存是是否lint操作
+  // lintOnSave: true,
+  // //  静态资源打包目录
+  // assetsDir: 'static',
+  // //  是否生成map文件
+  // productionSourceMap: false,
+  // //  pwa
+  // pwa: {},
+  // //  devServer
+  // devServer: {
+  //   // 局域网和本地访问
+  //   host: '0.0.0.0',
+  //   port: 17501,
+  //   hot: true,
+  //   open: false,
+  //   historyApiFallback: true,
+  //   allowedHosts: 'all',
+  // },
+  // // 第三方插件配置 https://www.npmjs.com/package/vue-cli-plugin-style-resources-loader
+  // pluginOptions: {},
+  // // chainWebpack: (config) => {
+  // //   // 路径配置
+  // //   // config.resolve.alias.set('@', path.resolve('src'))
+  // //   //
+  // //   // config.optimization.runtimeChunk('single')
+  // // },
+  // configureWebpack: {
+  //   // plugins: [
+  //   // AutoImport({
+  //   //   resolvers: [ElementPlusResolver()],
+  //   // }),
+  //   // Components({
+  //   //   resolvers: [ElementPlusResolver()],
+  //   // }),
+  //   // ],
+  // },
 
   css: {
     // 是否使用css分离插件

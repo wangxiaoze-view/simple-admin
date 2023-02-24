@@ -6,7 +6,7 @@ Mock.setup({
 
 let configArr = []
 
-const mockFiles = require.context('.', true, /\.js$/)
+const mockFiles = require.context('./controller', true, /\.js$/)
 
 mockFiles.keys().forEach((key) => {
   configArr = configArr.concat(mockFiles(key).default)

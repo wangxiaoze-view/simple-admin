@@ -1,9 +1,8 @@
 import axios from 'axios'
 import VueCookies from 'vue-cookies'
-import { cacheConfig } from '@/config'
 import { simNotice } from '@/utils/ele'
 
-const { sim_token } = cacheConfig
+const { sim_token } = require('@/config')
 
 const instance = axios.create({
   timeout: 20000,

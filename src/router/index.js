@@ -4,7 +4,7 @@ import { constantRoutes, asyncRoutes } from '@/router/routes'
 import setupPermission from './permission'
 
 const router = createRouter({
-  history: createWebHashHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(),
   // 待优化;
   routes: [...constantRoutes, ...asyncRoutes],
 })

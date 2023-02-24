@@ -1,9 +1,8 @@
 import { defineStore } from 'pinia'
 import { getCookies, setCookies } from '@/utils/cookie/index'
-import { cacheConfig } from '@/config'
 import UserProxy from '@/api/user/index'
 
-const { sim_token, sim_user_info } = cacheConfig
+const { sim_token, sim_user_info } = require('@/config')
 
 export const UserModuleStore = defineStore('UserModuleStore', {
   state: () => ({
