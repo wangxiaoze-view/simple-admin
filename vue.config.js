@@ -192,9 +192,9 @@ module.exports = defineConfig({
           const relativePath = path.relative(rootContext, resourcePath)
           if (
             relativePath.replace(/\\/g, '/') !==
-            'src/lib/styles/variables/variables.modules.scss'
+            'src/lib/styles/variables/variables.scss'
           )
-            return `@use "sass:math";@use "src/lib/styles/variables/variables.module.scss" as *;${content}`
+            return `@use "sass:math";@use "@/lib/styles/variables/variables.scss" as *;${content}`
           return content
         },
       },

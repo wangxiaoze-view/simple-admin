@@ -1,61 +1,33 @@
 <template>
-  <transition>
-    <div
-      class="error-container"
-      :class="[isAbsolute ? 'position-adsolute' : '']"
-    >
-      <el-icon :size="14"><WarnTriangleFilled /></el-icon>
-      <span class="error-container--title">{{ title }}</span>
-    </div>
-  </transition>
+  <teleport to="body">
+    <el-dialog v-model="visible" destroy-on-close v-bind="dialogParams">
+      <slot />
+    </el-dialog>
+  </teleport>
 </template>
 
 <script>
-  import { defineComponent } from 'vue'
+  import { reactive, toRefs } from 'vue'
 
-  export default defineComponent({
-    name: 'FormErrorMsg',
-    props: {
-      title: {
-        type: String,
-        default: '🙅错误信息',
-      },
-      isAbsolute: {
-        type: Boolean,
-        default: true,
-      },
-    },
+  export default {
+    name: 'DialogEl',
     setup() {
-      return {}
+      const state = reactive({
+        visible: false,
+        dialogParams: {},
+        setVisible: (visible, params) => {
+          state.visible = visible
+
+          if (params) {
+            state.dialogParams = Object.assign(state.dialogParams, params)
+          }
+        },
+      })
+      return {
+        ...toRefs(state),
+      }
     },
-  })
+  }
 </script>
 
-<style lang="scss" scoped>
-  .v-enter-active,
-  .v-leave-active {
-    transition: all 0.8s ease;
-  }
-  .v-enter,
-  .v-leave-to {
-    opacity: 0;
-  }
-  .error-container {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    color: #ff6463;
-    font-weight: 500;
-    line-height: 18px;
-    font-size: 12px;
-
-    &.position-adsolute {
-      position: absolute;
-      top: 100%;
-    }
-
-    &--title {
-      padding-left: 4px;
-    }
-  }
-</style>
+<style scoped></style>

@@ -5,16 +5,15 @@
       :content="translateTitle('debug')"
       placement="bottom"
     >
-      <span class="cursor-icon">
-        <el-badge
-          v-if="getDevice !== 'mobile' && getTheme.debug"
-          style="margin-bottom: -6px"
-          :is-dot="getError.length > 0"
-          @click="showError"
-        >
-          <el-icon :size="iconSize"><Bell /></el-icon>
-        </el-badge>
-      </span>
+      <el-badge
+        v-show="getDevice !== 'mobile' && getTheme.debug"
+        class="cursor-icon"
+        style="margin-bottom: -6px"
+        :is-dot="getError.length > 0"
+        @click="showError"
+      >
+        <el-icon :size="iconSize"><Bell /></el-icon>
+      </el-badge>
     </el-tooltip>
 
     <el-tooltip
@@ -22,15 +21,14 @@
       :content="translateTitle('locked')"
       placement="bottom"
     >
-      <span class="cursor-icon">
-        <el-icon
-          v-if="getDevice !== 'mobile' && getTheme.isLock"
-          :size="iconSize"
-          @click="setLock"
-        >
-          <Lock />
-        </el-icon>
-      </span>
+      <el-icon
+        v-show="getDevice !== 'mobile' && getTheme.isLock"
+        class="cursor-icon"
+        :size="iconSize"
+        @click="setLock"
+      >
+        <Lock />
+      </el-icon>
     </el-tooltip>
 
     <el-tooltip
@@ -38,28 +36,27 @@
       :content="translateTitle('fullPage')"
       placement="bottom"
     >
-      <span class="cursor-icon">
-        <el-icon
-          v-if="getDevice !== 'mobile' && getTheme.fullPage"
-          :size="iconSize"
-          @click="fullPage"
-        >
-          <FullScreen />
-        </el-icon>
-      </span>
+      <el-icon
+        v-show="getDevice !== 'mobile' && getTheme.fullPage"
+        class="cursor-icon"
+        :size="iconSize"
+        @click="fullPage"
+      >
+        <FullScreen />
+      </el-icon>
     </el-tooltip>
 
     <el-dropdown>
-      <span class="cursor-icon">
-        <el-badge
-          v-if="getTheme.isNotice"
-          :value="getNoticeList.length > 0 ? getNoticeList.length : ''"
-        >
-          <el-icon :size="iconSize">
-            <Message />
-          </el-icon>
-        </el-badge>
-      </span>
+      <el-badge
+        v-show="getTheme.isNotice"
+        class="cursor-icon"
+        :value="getNoticeList.length > 0 ? getNoticeList.length : ''"
+      >
+        <el-icon :size="iconSize">
+          <Message />
+        </el-icon>
+      </el-badge>
+
       <template #dropdown>
         <el-scrollbar max-height="500">
           <div class="sim-notice">
@@ -88,11 +85,9 @@
     </el-dropdown>
 
     <el-dropdown @command="changeLan">
-      <span class="cursor-icon">
-        <el-icon v-if="getTheme.i18n" :size="iconSize">
-          <Operation />
-        </el-icon>
-      </span>
+      <el-icon v-show="getTheme.i18n" class="cursor-icon" :size="iconSize">
+        <Operation />
+      </el-icon>
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item command="zh">简体中文</el-dropdown-item>
@@ -106,27 +101,24 @@
       :content="translateTitle('themeTitle')"
       placement="bottom"
     >
-      <span class="cursor-icon">
-        <el-icon
-          v-if="getDevice !== 'mobile'"
-          :size="iconSize"
-          @click="showTheme"
-        >
-          <Setting />
-        </el-icon>
-      </span>
+      <el-icon
+        v-show="getDevice !== 'mobile'"
+        class="cursor-icon"
+        :size="iconSize"
+        @click="showTheme"
+      >
+        <Setting />
+      </el-icon>
     </el-tooltip>
 
     <el-tooltip
-      effect="dark"
+      effec="dark"
       :content="translateTitle('refresh')"
       placement="bottom"
     >
-      <span class="cursor-icon">
-        <el-icon v-if="getTheme.refresh" :size="iconSize">
-          <Refresh />
-        </el-icon>
-      </span>
+      <el-icon v-show="getTheme.refresh" class="cursor-icon" :size="iconSize">
+        <Refresh />
+      </el-icon>
     </el-tooltip>
 
     <el-dropdown>

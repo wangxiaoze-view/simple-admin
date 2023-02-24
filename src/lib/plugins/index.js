@@ -6,6 +6,7 @@
 // 注册icons
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 // 注册store
+import ElementPlus from 'element-plus'
 import { setupStore } from '@/store'
 // 注册router
 import { setupRouter } from '@/router'
@@ -27,6 +28,7 @@ export default function setupInstall(app) {
   }
   setupErrorLog(app)
 
+  app.use(ElementPlus)
   setupStore(app)
 
   setupRouter(app)

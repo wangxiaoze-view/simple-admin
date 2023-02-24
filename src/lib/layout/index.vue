@@ -57,8 +57,10 @@
         },
         // 	获取锁屏壁纸
         getLockPicture: async () => {
-          const { data } = await Tools.getDmImage({ format: 'image' })
-          toolsStore.SET_LOCK_IMAGE(data.url)
+          const { data = null } = await Tools.getDmImage({ format: 'image' })
+          if (data) {
+            toolsStore.SET_LOCK_IMAGE(data.url)
+          }
         },
       })
 

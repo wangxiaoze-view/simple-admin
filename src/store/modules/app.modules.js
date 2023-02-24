@@ -74,45 +74,22 @@ export const AppModuleStore = defineStore('AppModuleStore', {
     UPDATE_THEME() {
       // 默认紫色 主题色
       const themeName = this.theme.themeName || 'purple'
-      // const modules = import.meta.glob(
-      //   '/src/lib/styles/variables/*.module.scss',
-      //   { eager: true }
-      // )
-      //
-      // // eslint-disable-next-line guard-for-in
-      // for (const path in modules) {
-      //   const arr = path.split('/').filter((name) => name !== '')
-      //   const name = arr[arr.length - 1].split('.')[0]
-      //   if (themeName === name) {
-      //     Object.keys(modules[path].default).forEach((key) => {
-      //       useCssVar(key.replace('sim-', '--el-'), ref(null)).value =
-      //         modules[path].default[key]
-      //     })
-      //     break
-      //   }
-      // }
+      // eslint-disable-next-line global-require,import/no-dynamic-require
+      let variables = require(`/src/lib/styles/variables/${themeName}.module.scss`)
 
-      console.log(themeName, 11, useCssVar, ref)
+      console.log(variables, 1111)
+      if (variables.default) variables = variables.default
+      //
+      Object.keys(variables).forEach((key) => {
+        if (key.startsWith('vab-')) {
+          useCssVar(key.replace('vab-', '--el-'), ref(null)).value =
+            variables[key]
+        }
+      })
 
       document.body.style = this.theme.colorWeakness
         ? 'filter: invert(80%);-webkit-filter: invert(80%);'
         : ''
-
-      // 这写法会报警告，但是可以正常执行
-      // import(`/src/lib/styles/variables/${themeName}.module.scss`).then(
-      //   (res) => {
-      //     Object.keys(res.default).forEach((key) => {
-      //       useCssVar(key.replace('sim-', '--el-'), ref(null)).value =
-      //         res.default[key];
-      //     });
-      //   }
-      // );
-
-      // 注意： 在webpack中可以使用require，但是在vite中使用这个，glob只能是字符串，不能拼接
-      // const variables = import.meta.glob(
-      //   `@/lib/styles/variables/purple.module.scss`,
-      //   { eager: true }
-      // );
     },
 
     // 菜单缩放
