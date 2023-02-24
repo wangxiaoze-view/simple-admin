@@ -1,4 +1,4 @@
-import UserMock from './template'
+import UserMock from '../template/user.tmp'
 
 export default {
   'post|/sim-api/login': (data) => {

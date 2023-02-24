@@ -1,4 +1,4 @@
-import NoticeMock from './template/index'
+import NoticeMock from '../template/notice.tmp'
 
 export default {
   'get|/sim-api/getNotice': () => {
