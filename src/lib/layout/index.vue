@@ -1,6 +1,7 @@
 <template>
-  <div class="sim-admin-container">
-    <!-- layout 的动态组件 -->
+  <div class="sim-admin--container">
+    <!--	用于加载layout的组件结构	-->
+
     <component
       :is="getLayout"
       :device="getDevice"
@@ -19,45 +20,69 @@
 </template>
 
 <script>
-  import { computed, reactive, toRefs } from 'vue'
-  import { AppMoudleStore } from '@/store/moudles/app.moudles'
+  import { defineComponent, reactive, computed, toRefs, onMounted } from 'vue'
+  import { AppModuleStore } from '@/store/modules/app.module'
+  import { NoticeModuleStore } from '@/store/modules/notice.module'
+  import { ToolsModuleStore } from '@/store/modules/tools.module'
   import SimLayoutOrdinary from './SimLayoutOrdinary/index.vue'
+  import SimLayoutFloat from '@/lib/layout/SimLayoutFloat/index.vue'
+  import SimLayoutRow from '@/lib/layout/SimLayoutRow/index.vue'
+  import useResponsive from '@/hooks/resize'
+  import Notice from '@/api/notice'
+  import Tools from '@/api/tools'
 
-  export default {
-    name: 'Index',
+  export default defineComponent({
+    name: 'LayoutIndex',
     components: {
       SimLayoutOrdinary,
+      SimLayoutFloat,
+      SimLayoutRow,
     },
     setup() {
-      const appStore = AppMoudleStore()
+      const store = AppModuleStore()
+      const noticeStore = NoticeModuleStore()
+      const toolsStore = ToolsModuleStore()
 
       const state = reactive({
-        getDevice: computed(() => {
-          return appStore.GET_DEVICE
-        }),
-
-        getTheme: computed(() => {
-          return appStore.GET_THEME
-        }),
-
-        getLayout: computed(() => {
-          return `sim-layout-${appStore.GET_THEME.layout}`
-        }),
+        // 获取设备
+        getDevice: computed(() => store.GET_DEVICE),
+        // 获取主题
+        getTheme: computed(() => store.GET_THEME),
+        // 获取结构
+        getLayout: computed(() => `sim-layout-${store.GET_THEME.layout}`),
+        // 设置消息
+        getNoticeList: async () => {
+          const { data } = await Notice.getList()
+          noticeStore.SET_NOTICE_LIST(data.list)
+        },
+        // 	获取锁屏壁纸
+        getLockPicture: async () => {
+          const { data } = await Tools.getDmImage({ format: 'image' })
+          toolsStore.SET_LOCK_IMAGE(data.url)
+        },
       })
 
-      appStore.UPDATE_THEME()
+      onMounted(() => {
+        store.UPDATE_THEME()
+        state.getNoticeList()
+        state.getLockPicture()
+      })
 
+      useResponsive()
       return {
         ...toRefs(state),
       }
     },
-  }
+  })
 </script>
 
 <style scoped lang="scss">
-  .sim-admin-container {
-    position: relative;
-    width: 100%;
+  .sim-admin--container {
     height: 100%;
+    .sim-admin-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
   }
 </style>

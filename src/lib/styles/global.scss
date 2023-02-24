@@ -1,4 +1,5 @@
-@import 'root';
+
+@import "root";
 
 html,
 body,
@@ -7,20 +8,40 @@ body,
   margin: 0;
   min-height: 100vh;
   height: 100%;
-  * {
-    user-select: none;
-  }
+  user-select: none;
+  background: $sim-color-background;
+
 
   .sim-router--view {
-    [class*=-main--container] {
-      // min-height: calc(100vh - 150px);
-        padding: 20px;
-        background: var(--el-color-white);
-        transition: all .3s cubic-bezier(.645,.045,.355,1),border 0s,color .1s,font-size 0s;
-    }
+	[class*=-main--container] {
+	  // min-height: calc(100vh - 150px);
+	  padding: 20px;
+	  background: var(--el-color-white);
+	  transition: all .3s cubic-bezier(.645,.045,.355,1),border 0s,color .1s,font-size 0s;
+	}
   }
 
-  
+  #nprogress .bar {
+	background: var(--el-color-primary) !important; //自定义颜色
+	border-radius: 50px;
+
+	.peg {
+	  box-shadow: none;
+	}
+  }
+
+
+  .sim-layout-ordinary {
+	.el-menu-item.is-active {
+	  background: var(--el-color-primary-light-9);
+	}
+  }
+
+
+  .sim-layout-float {
+	.el-sub-menu.is-active {
+	  background: var(--el-color-primary-light-9);
+	}
+  }
+
 }
-
-

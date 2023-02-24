@@ -1,11 +1,6 @@
-const cli = require('./cli.config')
-const cache = require('./cache.config')
-const set = require('./set.config')
-const theme = require('./theme.config')
+import cacheConfig from './cache'
+import cliConfig from './cli'
+import setConfig from './setting'
+import themeConfig from './theme'
 
-module.exports = {
-  ...cli,
-  ...cache,
-  ...set,
-  themeConfig: theme,
-}
+export { cacheConfig, cliConfig, setConfig, themeConfig }

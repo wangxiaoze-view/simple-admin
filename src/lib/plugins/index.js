@@ -1,28 +1,32 @@
-import * as Elicons from '@element-plus/icons-vue'
-import { setupRouter } from '@/router'
+/**
+ * @description 全局注册插件
+ * @param app
+ */
+
+// 注册icons
+import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+// 注册store
 import { setupStore } from '@/store'
-import { setupErrorLogs } from './errorLogs'
-
+// 注册router
+import { setupRouter } from '@/router'
+// 拦截错误日志
+import { setupErrorLog } from '@/lib/plugins/errorLog'
+// ele-css
 import 'element-plus/dist/index.css'
-import '@/lib/styles/global.scss'
-import '../../registerServiceWorker'
-import '@/mock'
-
-// 主题样式
+import 'element-plus/theme-chalk/display.css'
+// 全局样式
+import '../styles/global.scss'
+// mock数据
+import '@/mock/index'
 
 export default function setupInstall(app) {
-  setupErrorLogs(app)
-
-  // icon 组件
-  Object.keys(Elicons).forEach((key) => {
-    app.component(key, Elicons[key])
-  })
-
-  // eslint-disable-next-line global-require
-  const bgTheme = require.context('../styles/background', false, /\.scss$/)
-  bgTheme.keys().map(bgTheme)
+  for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+    app.component(key, component)
+  }
+  setupErrorLog(app)
 
   setupStore(app)
+
   setupRouter(app)
     .isReady()
     .then(() => {

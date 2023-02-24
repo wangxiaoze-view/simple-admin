@@ -47,7 +47,7 @@ $sim-left-menu-min-width: 64px;
 $sim-right-content-min-width: calc(100% - #{$sim-left-menu-width});
 //默认动画
 $sim-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border 0s,
-  color 0.2s, font-size 0s;
+color 0.2s, font-size 0s;
 
 
 // 字体颜色

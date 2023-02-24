@@ -1,10 +1,10 @@
 <template>
   <el-config-provider
-    :locale="locale"
-    :size="size"
-    :z-index="zIndex"
-    :button="button"
-    :message="message"
+    :locale="config.locale"
+    :size="config.size"
+    :z-index="config.zIndex"
+    :button="config.button"
+    :message="config.message"
   >
     <router-view v-slot="{ Component }">
       <component :is="Component" />
@@ -13,14 +13,17 @@
 </template>
 
 <script>
-  import getProvider from '@/hooks/provider'
+  import { defineComponent } from 'vue'
+  import providerConfig from '@/hooks/provider/index'
 
-  export default {
-    name: 'SimApp',
+  export default defineComponent({
+    name: 'SimAppIndex',
     setup() {
       return {
-        ...getProvider(),
+        config: providerConfig(),
       }
     },
-  }
+  })
 </script>
+
+<style scoped></style>
