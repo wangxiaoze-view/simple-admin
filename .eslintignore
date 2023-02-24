@@ -1,0 +1,7 @@
+dist
+node_modules
+!prettier.config.js
+
+
+auto-imports.d.ts
+components.d.ts

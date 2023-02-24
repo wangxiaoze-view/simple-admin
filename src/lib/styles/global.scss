@@ -1,0 +1,26 @@
+@import 'root';
+
+html,
+body,
+#app {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  height: 100%;
+  * {
+    user-select: none;
+  }
+
+  .sim-router--view {
+    [class*=-main--container] {
+      // min-height: calc(100vh - 150px);
+        padding: 20px;
+        background: var(--el-color-white);
+        transition: all .3s cubic-bezier(.645,.045,.355,1),border 0s,color .1s,font-size 0s;
+    }
+  }
+
+  
+}
+
+
