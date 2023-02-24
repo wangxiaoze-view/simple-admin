@@ -1,3 +1,5 @@
+import { cliConfig } from '@/config'
+
 const { defineConfig } = require('@vue/cli-service')
 const { resolve, relative } = require('path')
 const AutoImport = require('unplugin-auto-import/webpack')
@@ -18,7 +20,7 @@ const {
   cdn,
   productionGzipExtensions,
   isProcess,
-} = require('./src/config/index')
+} = cliConfig
 
 module.exports = defineConfig({
   transpileDependencies,
@@ -40,7 +42,7 @@ module.exports = defineConfig({
           const relativePath = relative(rootContext, resourcePath)
           if (
             relativePath.replace(/\\/g, '/') !==
-            'src/lib/styles/variables/variables.module.scss'
+            'src/lib/styles/variables/variables.modules.scss'
           )
             return `@use "sass:math";@use "src/lib/styles/variables/variables.module.scss" as *;${content}`
           return content
