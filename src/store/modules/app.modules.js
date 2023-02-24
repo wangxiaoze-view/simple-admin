@@ -76,13 +76,10 @@ export const AppModuleStore = defineStore('AppModuleStore', {
       const themeName = this.theme.themeName || 'purple'
       // eslint-disable-next-line global-require,import/no-dynamic-require
       let variables = require(`/src/lib/styles/variables/${themeName}.module.scss`)
-
-      console.log(variables, 1111)
       if (variables.default) variables = variables.default
-      //
       Object.keys(variables).forEach((key) => {
-        if (key.startsWith('vab-')) {
-          useCssVar(key.replace('vab-', '--el-'), ref(null)).value =
+        if (key.startsWith('sim-')) {
+          useCssVar(key.replace('sim-', '--el-'), ref(null)).value =
             variables[key]
         }
       })
