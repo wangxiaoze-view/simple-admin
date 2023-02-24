@@ -140,17 +140,17 @@
             })
           }
 
-          console.log(copy)
-          // import('@/config/theme.config').then((r) => {
-          //   if (r.default) {
-          //     copy(JSON.stringify(r.default))
-          //     simMessage({
-          //       message: '主题设置已拷贝',
-          //       grouping: true,
-          //       type: 'success',
-          //     })
-          //   }
-          // })
+          // eslint-disable-next-line global-require
+          const config = require('@/config')
+
+          if (config.themeConfig) {
+            simMessage({
+              message: '主题设置已拷贝',
+              grouping: true,
+              type: 'success',
+            })
+            copy(JSON.stringify(config.themeConfig))
+          }
         },
       })
 
