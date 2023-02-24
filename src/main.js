@@ -1,10 +1,6 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import setupInstall from './lib/plugins'
 
-const app = createApp(App)
+import setupInstall from '@/lib/plugins/index'
 
-app.config.errorHandler = (error) => {
-  console.log('catch error', error)
-}
-setupInstall(app)
+setupInstall(createApp(App))

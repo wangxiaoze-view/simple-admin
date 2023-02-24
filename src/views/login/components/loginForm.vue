@@ -78,10 +78,10 @@
     </el-form-item>
 
     <el-form-item class="sim-form--tools">
-      <router-link to="/register" class="sim-form--a">
+      <router-link to="#" class="sim-form--a">
         <div>{{ translateTitle('register') }}</div>
       </router-link>
-      <router-link to="/register" class="sim-form--a">
+      <router-link to="#" class="sim-form--a">
         <div>{{ translateTitle('forgotPassword') }}</div>
       </router-link>
     </el-form-item>
@@ -103,13 +103,7 @@
     </div>
 
     <el-form-item class="svg-container">
-      <img
-        v-for="(item, index) in SVG_ICONS"
-        :key="index"
-        class="login-image"
-        :src="item"
-        alt=""
-      />
+      <tripartite-login />
     </el-form-item>
   </el-form>
 </template>
@@ -124,92 +118,93 @@
     onMounted,
   } from 'vue'
   import { useRouter } from 'vue-router'
-  import { simNotice } from '@/utils/ele'
-
-  import { FORM_RULES, SVG_ICONS } from '../config/handler'
-  import { translateTitle } from '@/utils/translate'
-  import { AppMoudleStore } from '@/store/moudles/app.moudles'
-  import { UserMoudleStore } from '@/store/moudles/user.moudles'
+  import { FORM_RULES } from '../config/index'
+  import { translateTitle } from '@/hooks/translate/index'
+  import { UserModuleStore } from '@/store/modules/user.module'
   import FormErrorMsg from '@/components/FormErrorMsg/index.vue'
-  import RandomCodeToCanvas from '@/utils/dandomCode'
-  import useLoading from '@/hooks/loading'
+  import RandomCodeToCanvas from '@/utils/verificationCode/index'
   import { getNowTimeTitle } from '@/utils'
+  import useLoading from '@/hooks/loading'
+  import { importImage } from '@/hooks/importFile'
+  import TripartiteLogin from './tripartiteLogin.vue'
+  import { simNotice } from '@/utils/ele'
 
   export default defineComponent({
     name: 'LoginForm',
     components: {
       FormErrorMsg,
+      TripartiteLogin,
     },
     setup() {
-      const formRef = ref()
-
-      const appStore = AppMoudleStore()
-      const userStore = UserMoudleStore()
-      const router = useRouter()
-
-      const { loading, setLoading } = useLoading(false)
-
-      const state = reactive({
-        formModel: {
+      const initFormModelFun = () => {
+        return {
           userName: 'admin',
           password: '123',
           code: '',
-        },
+        }
+      }
+
+      const router = useRouter()
+      const formRef = ref()
+      const userStore = UserModuleStore()
+      const { loading, setLoading } = useLoading(false)
+
+      const state = reactive({
+        formModel: initFormModelFun(),
         codeImage: '',
-        tempCode: '',
         FORM_RULES,
-        SVG_ICONS,
         isPassword: true,
         passwordType: 'password',
-
-        title: computed(() => {
-          return appStore.title
-        }),
 
         isDisabled: computed(() => {
           const { userName, password } = state.formModel
           return !userName || !password
         }),
+      })
 
+      const handlerState = reactive({
         refreshCode: () => {
           const { url, code } = new RandomCodeToCanvas().randomCode()
           state.codeImage = url
           state.formModel.code = code
-          state.tempCode = code
         },
-
         handleLogin: async (form) => {
           if (!form) return
           await form.validate(async (valid) => {
             if (!valid) return
-            setLoading(true)
-            const result = await userStore.TO_LOGIN(state.formModel)
-            if (result) {
-              const { name, isMale } = result
-              const nameString =
-                name.substring(0, 1) + (isMale ? '先生' : '女士')
-              simNotice({
-                title: '登录成功',
-                message: `${nameString}, ${getNowTimeTitle()}, 欢迎回来!`,
-                type: 'success',
-              })
-              await router.push('/')
+
+            try {
+              setLoading(true)
+              const result = await userStore.SET_LOGIN(state.formModel)
+              if (result) {
+                const { name, isMale } = result
+                const nameString =
+                  name.substring(0, 1) + (isMale ? '先生' : '女士')
+                simNotice({
+                  title: '登录成功',
+                  message: `${nameString}, ${getNowTimeTitle()}, 欢迎回来!`,
+                  type: 'success',
+                })
+                await router.push('/')
+              }
+            } finally {
+              setTimeout(() => setLoading(false), 2000)
             }
-            setTimeout(() => setLoading(false), 2000)
           })
         },
       })
 
       onMounted(() => {
-        state.refreshCode()
+        handlerState.refreshCode()
       })
 
       return {
         formRef,
         loading,
-        setLoading,
         translateTitle,
+        importImage,
         ...toRefs(state),
+        ...toRefs(handlerState),
       }
     },
   })

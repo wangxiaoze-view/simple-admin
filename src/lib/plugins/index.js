@@ -19,6 +19,8 @@ import '../styles/global.scss'
 // mock数据
 import '@/mock/index'
 
+import '../../registerServiceWorker'
+
 export default function setupInstall(app) {
   for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
     app.component(key, component)

@@ -1,10 +1,11 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 
+import { constantRoutes, asyncRoutes } from '@/router/routes'
 import setupPermission from './permission'
-import { constantRoutes, asyncRoutes } from './route'
 
 const router = createRouter({
-  history: createWebHashHistory(process.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
+  // 待优化;
   routes: [...constantRoutes, ...asyncRoutes],
 })
 
