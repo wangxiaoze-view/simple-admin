@@ -1,16 +1,9 @@
 <template>
-  <SimApp />
+  <sim-app />
 </template>
 
-<script>
+<script setup>
   import SimApp from '@/lib/components/SimApp/index.vue'
-
-  export default {
-    name: 'App',
-    components: {
-      SimApp,
-    },
-  }
 </script>
 
 <style lang="scss">

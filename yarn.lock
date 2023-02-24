@@ -3690,7 +3690,7 @@ electron-to-chromium@^1.4.284:
   resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.310.tgz#cb85dc8ceac536e99b20a364d7ab00ea35168f9e"
   integrity sha512-/xlATgfwkm5uDDwLw5nt/MNEf7c1oazLURMZLy39vOioGYyYzLWIDT8fZMJak6qTiAJ7udFTy7JG7ziyjNutiA==
 
-element-plus@^2.2.28:
+element-plus@^2.2.32:
   version "2.2.32"
   resolved "https://registry.npmmirror.com/element-plus/-/element-plus-2.2.32.tgz#e7e6757a66ed158363a86b5c9fc10dfbc0096783"
   integrity sha512-DTJMhYOy6MApbmh6z/95hPTK5WrBiNHGzV4IN+uEkup1WoimQ+Qyt8RxKdTe/X1LWEJ8YgWv/Cl8P4ocrt5z5g==
