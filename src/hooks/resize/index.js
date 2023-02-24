@@ -1,6 +1,6 @@
 import { useDebounceFn } from '@vueuse/core'
 import { onMounted, onBeforeMount, onBeforeUnmount } from 'vue'
-import { AppModuleStore } from '@/store/modules/app.module'
+import { AppModuleStore } from '@/store/modules/app.modules'
 
 const WIDTH = 992
 function getDeviceW() {

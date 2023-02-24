@@ -13,7 +13,7 @@
         <el-col :lg="12" :md="12" :sm="0" :xl="12" :xs="0" class="content-left">
           <img
             class="logo-cover"
-            :src="importImage('images/logo_cover.svg')"
+            :src="require('@/assets/images/logo_cover.svg')"
             alt=""
           />
         </el-col>
@@ -29,17 +29,11 @@
 <script>
   import { defineComponent } from 'vue'
   import loginFormVue from './components/loginForm.vue'
-  import { importImage } from '@/hooks/importFile'
 
   export default defineComponent({
     name: 'LoginIndex',
     components: {
       loginFormVue,
-    },
-    setup() {
-      return {
-        importImage,
-      }
     },
   })
 </script>

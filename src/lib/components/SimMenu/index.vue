@@ -30,7 +30,7 @@
 <script>
   import { computed, reactive, toRefs } from 'vue'
   import { asyncRoutes } from '@/router/routes'
-  import { AppModuleStore } from '@/store/modules/app.module'
+  import { AppModuleStore } from '@/store/modules/app.modules'
   import { translateTitle } from '@/hooks/translate/index'
 
   export default {

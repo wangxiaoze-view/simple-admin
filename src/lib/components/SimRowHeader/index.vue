@@ -21,7 +21,7 @@
 <script>
   import { computed } from 'vue'
   import SimHeaderTools from '@/lib/components/SimHeaderTools/index.vue'
-  import { AppModuleStore } from '@/store/modules/app.module'
+  import { AppModuleStore } from '@/store/modules/app.modules'
   import SimMenu from '@/lib/components/SimMenu/index.vue'
 
   export default {

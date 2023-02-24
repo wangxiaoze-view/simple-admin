@@ -3,10 +3,9 @@
  */
 
 import i18n from '@/i18n'
-import { AppModuleStore } from '@/store/modules/app.module'
-import setConfig from '@/config/set.config'
+import { AppModuleStore } from '@/store/modules/app.modules'
 
-const { titleDivision, description } = setConfig
+const { titleDivision, description } = require('@/config')
 
 export function translateTitle(title) {
   const { global } = i18n()

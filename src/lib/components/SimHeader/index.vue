@@ -43,7 +43,7 @@
 <script>
   import { computed } from 'vue'
   import SimHeaderTools from '@/lib/components/SimHeaderTools/index.vue'
-  import { AppModuleStore } from '@/store/modules/app.module'
+  import { AppModuleStore } from '@/store/modules/app.modules'
   import SimTabs from '@/lib/components/SimTabs/index.vue'
 
   export default {

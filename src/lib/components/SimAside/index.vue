@@ -12,7 +12,7 @@
 <script>
   import { computed, reactive, toRefs } from 'vue'
   import SimMenu from '@/lib/components/SimMenu/index.vue'
-  import { AppModuleStore } from '@/store/modules/app.module'
+  import { AppModuleStore } from '@/store/modules/app.modules'
 
   export default {
     name: 'SimAside',

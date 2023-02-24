@@ -2,7 +2,7 @@
  * @description 拦截错误日志
  */
 
-import { ErrorModuleStore } from '@/store/modules/error.module'
+import { ErrorModuleStore } from '@/store/modules/error.modules'
 
 export function setErrorLog(error, instance, info) {
   const errorStore = ErrorModuleStore()

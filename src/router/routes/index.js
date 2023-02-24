@@ -1,10 +1,10 @@
 // 固定路由
-import HomeRoute from './modules/home.route'
-import PermissionRoute from './modules/permission.route'
-import FunRoute from './modules/fun.route'
-import PageRoute from './modules/page.route'
-import LinkRoute from './modules/link.route'
-import ComponentRoute from './modules/component.route'
+import HomeRoute from '../modules/home.route'
+import PermissionRoute from '../modules/permission.route'
+import FunRoute from '../modules/fun.route'
+import PageRoute from '../modules/page.route'
+import LinkRoute from '../modules/link.route'
+import ComponentRoute from '../modules/component.route'
 
 export const constantRoutes = [
   {
@@ -15,7 +15,7 @@ export const constantRoutes = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import('@/views/login/Index.vue'),
+    component: () => import('@/views/login/index.vue'),
     meta: {
       title: '登录',
     },

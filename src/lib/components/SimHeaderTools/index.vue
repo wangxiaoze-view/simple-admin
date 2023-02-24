@@ -193,11 +193,10 @@
 <script>
   import { toRefs, reactive, computed, ref } from 'vue'
   import { useFullscreen } from '@vueuse/core'
-  import { UserModuleStore } from '@/store/modules/user.module'
-  import { AppModuleStore } from '@/store/modules/app.module'
-  import { ErrorModuleStore } from '@/store/modules/error.module'
-  import { NoticeModuleStore } from '@/store/modules/notice.module'
-
+  import { UserModuleStore } from '@/store/modules/user.modules'
+  import { AppModuleStore } from '@/store/modules/app.modules'
+  import { ErrorModuleStore } from '@/store/modules/error.modules'
+  import { NoticeModuleStore } from '@/store/modules/notice.modules'
   import DialogEl from '@/components/DialogEl/index.vue'
   import SimLock from '@/lib/components/SimLock/index.vue'
   import SimThemeDrawer from '@/lib/components/SimThemeDrawer/index.vue'

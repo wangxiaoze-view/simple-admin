@@ -3,7 +3,7 @@
  * @author 王小泽
  */
 
-export default {
+module.exports = {
   // 标题
   title: 'simple-admin',
   // 标题分隔符

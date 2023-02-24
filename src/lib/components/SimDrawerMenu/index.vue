@@ -12,7 +12,7 @@
 
 <script>
   import { defineComponent, reactive, computed, toRefs } from 'vue'
-  import { AppModuleStore } from '@/store/modules/app.module'
+  import { AppModuleStore } from '@/store/modules/app.modules'
   import SimMenu from '@/lib/components/SimMenu/index.vue'
 
   export default defineComponent({

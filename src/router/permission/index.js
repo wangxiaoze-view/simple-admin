@@ -1,6 +1,6 @@
 import SimProgress from '@/lib/plugins/progress'
 
-import { UserModuleStore } from '@/store/modules/user.module'
+import { UserModuleStore } from '@/store/modules/user.modules'
 import { getPageTitle } from '@/hooks/translate/index'
 
 export default function SetupPermission(router) {

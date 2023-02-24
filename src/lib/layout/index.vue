@@ -21,10 +21,10 @@
 
 <script>
   import { defineComponent, reactive, computed, toRefs, onMounted } from 'vue'
-  import { AppModuleStore } from '@/store/modules/app.module'
-  import { NoticeModuleStore } from '@/store/modules/notice.module'
-  import { ToolsModuleStore } from '@/store/modules/tools.module'
-  import SimLayoutOrdinary from './SimLayoutOrdinary/index.vue'
+  import { AppModuleStore } from '@/store/modules/app.modules'
+  import { NoticeModuleStore } from '@/store/modules/notice.modules'
+  import { ToolsModuleStore } from '@/store/modules/tools.modules'
+  import SimLayoutOrdinary from '@/lib/layout/SimLayoutOrdinary/index.vue'
   import SimLayoutFloat from '@/lib/layout/SimLayoutFloat/index.vue'
   import SimLayoutRow from '@/lib/layout/SimLayoutRow/index.vue'
   import useResponsive from '@/hooks/resize'

@@ -65,10 +65,9 @@
 
 <script>
   import { defineComponent, toRefs, reactive, computed, ref } from 'vue'
-  import { AppModuleStore } from '@/store/modules/app.module'
-
-  import { UserModuleStore } from '@/store/modules/user.module'
-  import { ToolsModuleStore } from '@/store/modules/tools.module'
+  import { AppModuleStore } from '@/store/modules/app.modules'
+  import { UserModuleStore } from '@/store/modules/user.modules'
+  import { ToolsModuleStore } from '@/store/modules/tools.modules'
   import FormErrorMsg from '@/components/FormErrorMsg/index.vue'
   import { translateTitle } from '@/hooks/translate'
   import Tools from '@/api/tools'

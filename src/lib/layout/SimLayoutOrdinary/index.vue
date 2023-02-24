@@ -19,7 +19,6 @@
 <script>
   import SimAside from '@/lib/components/SimAside/index.vue'
   import SimDrawerMenu from '@/lib/components/SimDrawerMenu/index.vue'
-
   import SimHeader from '@/lib/components/SimHeader/index.vue'
 
   export default {

@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   // 布局方式  普通布局ordinary  横向布局row  分拦布局column  浮动布局float
   layout: 'ordinary',
   // 主题颜色  purple： 紫色  blue: 蓝色 green: 绿色  red: 红色

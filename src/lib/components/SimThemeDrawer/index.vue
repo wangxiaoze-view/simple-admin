@@ -108,7 +108,7 @@
 <script>
   import { reactive, toRefs, computed, watch } from 'vue'
   import { useClipboard } from '@vueuse/core'
-  import { AppModuleStore } from '@/store/modules/app.module'
+  import { AppModuleStore } from '@/store/modules/app.modules'
   import { simMessage } from '@/utils/ele'
   import { translateTitle } from '@/hooks/translate'
 
@@ -139,16 +139,18 @@
               type: 'warning',
             })
           }
-          import('@/config/theme.config').then((r) => {
-            if (r.default) {
-              copy(JSON.stringify(r.default))
-              simMessage({
-                message: '主题设置已拷贝',
-                grouping: true,
-                type: 'success',
-              })
-            }
-          })
+
+          console.log(copy)
+          // import('@/config/theme.config').then((r) => {
+          //   if (r.default) {
+          //     copy(JSON.stringify(r.default))
+          //     simMessage({
+          //       message: '主题设置已拷贝',
+          //       grouping: true,
+          //       type: 'success',
+          //     })
+          //   }
+          // })
         },
       })
 

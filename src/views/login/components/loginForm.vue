@@ -120,12 +120,11 @@
   import { useRouter } from 'vue-router'
   import { FORM_RULES } from '../config/index'
   import { translateTitle } from '@/hooks/translate/index'
-  import { UserModuleStore } from '@/store/modules/user.module'
+  import { UserModuleStore } from '@/store/modules/user.modules'
   import FormErrorMsg from '@/components/FormErrorMsg/index.vue'
   import RandomCodeToCanvas from '@/utils/verificationCode/index'
   import { getNowTimeTitle } from '@/utils'
   import useLoading from '@/hooks/loading'
-  import { importImage } from '@/hooks/importFile'
   import TripartiteLogin from './tripartiteLogin.vue'
   import { simNotice } from '@/utils/ele'
 
@@ -202,7 +201,6 @@
         formRef,
         loading,
         translateTitle,
-        importImage,
         ...toRefs(state),
         ...toRefs(handlerState),
       }

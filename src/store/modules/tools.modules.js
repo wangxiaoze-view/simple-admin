@@ -1,4 +1,4 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
 export const ToolsModuleStore = defineStore('ToolsModuleStore', {
   state: () => ({
@@ -10,10 +10,10 @@ export const ToolsModuleStore = defineStore('ToolsModuleStore', {
   },
   actions: {
     SET_LOCK_IMAGE(image) {
-      this.lockImage = image;
+      this.lockImage = image
     },
     CLEAR_ERROR_LOGS() {
-      this.$reset();
+      this.$reset()
     },
   },
-});
+})

@@ -1,6 +1,5 @@
 import { translateTitle } from '@/hooks/translate'
 import { isPassword } from '@/utils/regular/index'
-import { importImage } from '@/hooks/importFile'
 
 export const FORM_RULES = {
   userName: [
@@ -42,6 +41,8 @@ export const FORM_RULES = {
 }
 
 export const SVG_ICONS = [
-  importImage('icons/wechat_icon.svg'),
-  importImage('icons/qq_icon.svg'),
+  // eslint-disable-next-line global-require
+  require('@/assets/icons/wechat_icon.svg'),
+  // eslint-disable-next-line global-require
+  require('@/assets/icons/qq_icon.svg'),
 ]

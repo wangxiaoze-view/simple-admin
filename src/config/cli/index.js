@@ -6,7 +6,7 @@
 function env(envArr = ['production', 'test', 'pre']) {
   return envArr.includes(process.env.NODE_ENV)
 }
-export default {
+module.exports = {
   //  是否兼容ie
   transpileDependencies: true,
   //  公共路径

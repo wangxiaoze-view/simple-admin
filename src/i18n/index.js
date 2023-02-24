@@ -2,7 +2,7 @@ import { createI18n } from 'vue-i18n'
 import enLocale from 'element-plus/lib/locale/lang/en'
 import zhLocale from 'element-plus/lib/locale/lang/zh-cn'
 import { computed } from 'vue'
-import { AppModuleStore } from '@/store/modules/app.module'
+import { AppModuleStore } from '@/store/modules/app.modules'
 
 import zh from './zh'
 import en from './en'

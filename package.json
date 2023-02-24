@@ -3,91 +3,91 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "eslint --fix --ext .vue,.js,.jsx ./ --max-warnings 0",
-    "lint:fix": "eslint --ext .vue,.js,jsx ./ --max-warnings 0 --fix",
-    "stylelint": "stylelint src/**/*.{html,vue,sass,less}",
-    "stylelint:fix": "stylelint --cache --fix src/**/*.{html,vue,vss,sass,less}",
-    "prepare": "husky install"
+	"serve": "vue-cli-service serve",
+	"build": "vue-cli-service build",
+	"lint": "eslint --fix --ext .vue,.js,.jsx ./ --max-warnings 0",
+	"lint:fix": "eslint --ext .vue,.js,jsx ./ --max-warnings 0 --fix",
+	"stylelint": "stylelint src/**/*.{html,vue,sass,less}",
+	"stylelint:fix": "stylelint --cache --fix src/**/*.{html,vue,vss,sass,less}",
+	"prepare": "husky install"
   },
   "dependencies": {
-    "@vueuse/core": "^9.10.0",
-    "axios": "^1.2.2",
-    "core-js": "^3.28.0",
-    "element-plus": "^2.2.32",
-    "mockjs": "^1.1.0",
-    "nprogress": "^0.2.0",
-    "path-browserify": "^1.0.1",
-    "pinia": "^2.0.32",
-    "register-service-worker": "^1.7.2",
-    "vue": "^3.2.47",
-    "vue-cookies": "^1.8.2",
-    "vue-i18n": "^9.2.2",
-    "vue-router": "^4.0.3"
+	"@vueuse/core": "^9.10.0",
+	"axios": "^1.2.2",
+	"core-js": "^3.8.3",
+	"element-plus": "^2.2.28",
+	"mockjs": "^1.1.0",
+	"nprogress": "^0.2.0",
+	"path-browserify": "^1.0.1",
+	"pinia": "^2.0.28",
+	"register-service-worker": "^1.7.2",
+	"vue": "^3.2.13",
+	"vue-cookies": "^1.8.2",
+	"vue-i18n": "^9.2.2",
+	"vue-router": "^4.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.12.16",
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
-    "@vue/cli-plugin-babel": "~5.0.0",
-    "@vue/cli-plugin-eslint": "~5.0.0",
-    "@vue/cli-plugin-pwa": "~5.0.0",
-    "@vue/cli-plugin-router": "~5.0.0",
-    "@vue/cli-service": "~5.0.0",
-    "compression-webpack-plugin": "^10.0.0",
-    "eslint": "^7.32.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-define-config": "^1.7.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-vue": "^8.0.3",
-    "husky": "^8.0.2",
-    "postcss": "^8.4.20",
-    "postcss-html": "^1.5.0",
-    "postcss-less": "^6.0.0",
-    "prettier": "^2.4.1",
-    "sass": "^1.32.7",
-    "sass-loader": "^12.0.0",
-    "stylelint": "^14.16.1",
-    "stylelint-config-prettier": "^9.0.4",
-    "stylelint-config-recommended-less": "^1.0.4",
-    "stylelint-config-standard": "^29.0.0",
-    "stylelint-config-standard-vue": "^1.0.0",
-    "stylelint-less": "^1.0.6",
-    "stylelint-order": "^5.0.0",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "unplugin-auto-import": "^0.12.1",
-    "unplugin-vue-components": "^0.22.12"
+	"@babel/core": "^7.12.16",
+	"@babel/eslint-parser": "^7.12.16",
+	"@commitlint/cli": "^17.1.2",
+	"@commitlint/config-conventional": "^17.1.0",
+	"@vue/cli-plugin-babel": "~5.0.0",
+	"@vue/cli-plugin-eslint": "~5.0.0",
+	"@vue/cli-plugin-pwa": "~5.0.0",
+	"@vue/cli-plugin-router": "~5.0.0",
+	"@vue/cli-service": "~5.0.0",
+	"compression-webpack-plugin": "^10.0.0",
+	"eslint": "^7.32.0",
+	"eslint-config-airbnb-base": "^15.0.0",
+	"eslint-config-prettier": "^8.3.0",
+	"eslint-define-config": "^1.7.0",
+	"eslint-plugin-import": "^2.26.0",
+	"eslint-plugin-prettier": "^4.0.0",
+	"eslint-plugin-vue": "^8.0.3",
+	"husky": "^8.0.2",
+	"postcss": "^8.4.20",
+	"postcss-html": "^1.5.0",
+	"postcss-less": "^6.0.0",
+	"prettier": "^2.4.1",
+	"sass": "^1.32.7",
+	"sass-loader": "^12.0.0",
+	"stylelint": "^14.16.1",
+	"stylelint-config-prettier": "^9.0.4",
+	"stylelint-config-recommended-less": "^1.0.4",
+	"stylelint-config-standard": "^29.0.0",
+	"stylelint-config-standard-vue": "^1.0.0",
+	"stylelint-less": "^1.0.6",
+	"stylelint-order": "^5.0.0",
+	"uglifyjs-webpack-plugin": "^2.2.0",
+	"unplugin-auto-import": "^0.12.1",
+	"unplugin-vue-components": "^0.22.12"
   },
   "browser": {
-    "path-browserify": true
+	"path-browserify": true
   },
   "gitHooks": {
-    "pre-commit": "lint-staged",
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+	"pre-commit": "lint-staged",
+	"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
-    ],
-    "*.vue": [
-      "prettier --write",
-      "eslint --fix",
-      "stylelint --fix"
-    ],
-    "*.{vue,vss,sass,less}": [
-      "prettier --write",
-      "stylelint --fix"
-    ],
-    "package.json": [
-      "prettier --write"
-    ],
-    "*.md": [
-      "prettier --write"
-    ]
+	"*.{js,jsx,ts,tsx}": [
+	  "prettier --write",
+	  "eslint --fix"
+	],
+	"*.vue": [
+	  "prettier --write",
+	  "eslint --fix",
+	  "stylelint --fix"
+	],
+	"*.{vue,vss,sass,less}": [
+	  "prettier --write",
+	  "stylelint --fix"
+	],
+	"package.json": [
+	  "prettier --write"
+	],
+	"*.md": [
+	  "prettier --write"
+	]
   }
 }

@@ -2,7 +2,7 @@
  * @description 全局的缓存设置
  * @author 王小泽
  */
-export default {
+module.exports = {
   // token
   sim_token: 'sim_token',
   // 语言设置

@@ -1,12 +1,19 @@
 import { defineStore } from 'pinia'
 import { useCssVar } from '@vueuse/core'
 import { ref } from 'vue'
-import { cacheConfig, themeConfig, setConfig } from '@/config'
 
 import { getLocalStorage } from '@/utils/cookie/index'
 
-const { sim_language, sim_theme, sim_device, sim_lock } = cacheConfig
-const { title, logo, i18n } = setConfig
+const {
+  sim_language,
+  sim_theme,
+  sim_device,
+  sim_lock,
+  themeConfig,
+  title,
+  logo,
+  i18n,
+} = require('@/config/index')
 
 const { language } = getLocalStorage(sim_language)
 const { device } = getLocalStorage(sim_device)
@@ -67,23 +74,25 @@ export const AppModuleStore = defineStore('AppModuleStore', {
     UPDATE_THEME() {
       // 默认紫色 主题色
       const themeName = this.theme.themeName || 'purple'
-      const modules = import.meta.glob(
-        '/src/lib/styles/variables/*.module.scss',
-        { eager: true }
-      )
+      // const modules = import.meta.glob(
+      //   '/src/lib/styles/variables/*.module.scss',
+      //   { eager: true }
+      // )
+      //
+      // // eslint-disable-next-line guard-for-in
+      // for (const path in modules) {
+      //   const arr = path.split('/').filter((name) => name !== '')
+      //   const name = arr[arr.length - 1].split('.')[0]
+      //   if (themeName === name) {
+      //     Object.keys(modules[path].default).forEach((key) => {
+      //       useCssVar(key.replace('sim-', '--el-'), ref(null)).value =
+      //         modules[path].default[key]
+      //     })
+      //     break
+      //   }
+      // }
 
-      // eslint-disable-next-line guard-for-in
-      for (const path in modules) {
-        const arr = path.split('/').filter((name) => name !== '')
-        const name = arr[arr.length - 1].split('.')[0]
-        if (themeName === name) {
-          Object.keys(modules[path].default).forEach((key) => {
-            useCssVar(key.replace('sim-', '--el-'), ref(null)).value =
-              modules[path].default[key]
-          })
-          break
-        }
-      }
+      console.log(themeName, 11, useCssVar, ref)
 
       document.body.style = this.theme.colorWeakness
         ? 'filter: invert(80%);-webkit-filter: invert(80%);'
