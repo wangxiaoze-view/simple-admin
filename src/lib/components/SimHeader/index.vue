@@ -41,8 +41,6 @@
       </el-col>
     </el-row>
     <sim-tabs />
-
-    <sim-main-view />
   </div>
 </template>
 
@@ -52,7 +50,6 @@
   import { AppModuleStore } from '@/store/modules/app.modules'
   import { RouterModuleStore } from '@/store/modules/router.modules'
   import SimTabs from '@/lib/components/SimTabs/index.vue'
-  import SimMainView from '@/lib/components/SimMainView/index.vue'
   import { translateTitle } from '@/hooks/translate/index'
 
   export default {
@@ -60,7 +57,6 @@
     components: {
       SimHeaderTools,
       SimTabs,
-      SimMainView,
     },
     setup() {
       const store = AppModuleStore()

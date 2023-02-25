@@ -18,4 +18,18 @@ export default class NoticeMock {
       ],
     })
   }
+
+  // 获取更新日志
+  static getUpdateList() {
+    return Mock.mock({
+      'list|10': [
+        {
+          id: '@id', // 随机id
+          title: '@title(1, 4)', // 随机标题
+          desc: '@cparagraph(1, 2)', // 随机内容
+          createTime: '@datetime', // 创建时间
+        },
+      ],
+    })
+  }
 }

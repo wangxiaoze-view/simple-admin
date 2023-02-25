@@ -12,6 +12,9 @@
     <sim-drawer-menu v-if="device === 'mobile'" />
     <div class="sim-content">
       <sim-header />
+      <sim-main-view
+        :style="{ 'padding-top': isHeaderFixed ? '101px' : '0' }"
+      />
     </div>
   </div>
 </template>
@@ -20,6 +23,7 @@
   import SimAside from '@/lib/components/SimAside/index.vue'
   import SimDrawerMenu from '@/lib/components/SimDrawerMenu/index.vue'
   import SimHeader from '@/lib/components/SimHeader/index.vue'
+  import SimMainView from '@/lib/components/SimMainView/index.vue'
 
   export default {
     name: 'SimLayoutOrdinary',
@@ -27,6 +31,7 @@
       SimAside,
       SimDrawerMenu,
       SimHeader,
+      SimMainView,
     },
     props: {
       device: {

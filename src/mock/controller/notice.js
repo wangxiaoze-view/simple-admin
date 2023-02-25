@@ -8,4 +8,12 @@ export default {
       data: NoticeMock.getNoticeList(),
     }
   },
+
+  'get|/sim-api/getUpdateList': () => {
+    return {
+      status: 200,
+      message: 'success',
+      data: NoticeMock.getUpdateList(),
+    }
+  },
 }

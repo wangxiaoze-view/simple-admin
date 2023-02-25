@@ -10,8 +10,8 @@ html, body , #app {
   .sim-router--view {
     [class*=-main--container] {
       padding: 20px;
-      margin: 20px;
-      background: var(--el-color-white);
+      // margin: 20px;
+      // background: var(--el-color-white);
       border-radius: 6px;
       transition: all .3s cubic-bezier(.645,.045,.355,1),border 0s,color .1s,font-size 0s;
     }
@@ -111,6 +111,7 @@ html, body , #app {
           top: 0;
           box-sizing: border-box;
           width: $sim-right-content-width;
+          z-index: 99;
         }
       }
 
