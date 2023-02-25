@@ -1,6 +1,9 @@
 <template>
   <el-aside class="sim-aside">
-    <div class="sim-aside--title">S</div>
+    <div class="sim-aside--title">
+      <img class="sim-logo" :src="require('@/assets/images/logo.png')" alt="" />
+      <span v-if="!isCollapse">SimpleAdmin</span>
+    </div>
     <div class="sim-aside--menu">
       <el-scrollbar class="sim-scroll--bar">
         <sim-menu :is-collapse="isCollapse" />

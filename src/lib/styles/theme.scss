@@ -61,6 +61,10 @@ html, body , #app {
           font-size: 20px;
           color: rgb(25, 26, 35);
           font-weight: 600;
+
+          .sim-logo {
+            width: $sim-left-menu-min-width;
+          }
         }
 
         &--menu {
