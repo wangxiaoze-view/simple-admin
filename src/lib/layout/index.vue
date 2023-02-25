@@ -1,7 +1,6 @@
 <template>
   <div class="sim-admin--container">
     <!--	用于加载layout的组件结构	-->
-
     <component
       :is="getLayout"
       :device="getDevice"
@@ -9,13 +8,6 @@
       :is-tabs="getTheme.isTabs"
       :collapse="getTheme.collapse"
     />
-
-    <el-backtop
-      target="#app"
-      :right="10"
-      :bottom="100"
-      :visibility-height="200"
-    ></el-backtop>
   </div>
 </template>
 
