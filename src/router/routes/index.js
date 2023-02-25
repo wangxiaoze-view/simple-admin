@@ -10,7 +10,7 @@ export const constantRoutes = [
   {
     path: '/',
     name: 'Root',
-    redirect: '/home/index',
+    redirect: '/home/workbench',
   },
   {
     path: '/login',

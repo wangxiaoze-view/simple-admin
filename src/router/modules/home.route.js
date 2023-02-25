@@ -8,13 +8,13 @@ export default {
   },
   children: [
     {
-      path: 'index',
+      path: 'workbench',
       name: 'HomeIndex',
       component: () => import('@/views/home/workbench/index.vue'),
       meta: {
         title: 'workbench',
         icon: 'HomeFilled',
-        noCloseTab: true,
+        closable: true,
       },
     },
     {

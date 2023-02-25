@@ -38,7 +38,7 @@
     </el-row>
     <sim-tabs />
 
-    <router-view />
+    <sim-main-view />
   </div>
 </template>
 
@@ -47,12 +47,14 @@
   import SimHeaderTools from '@/lib/components/SimHeaderTools/index.vue'
   import { AppModuleStore } from '@/store/modules/app.modules'
   import SimTabs from '@/lib/components/SimTabs/index.vue'
+  import SimMainView from '@/lib/components/SimMainView/index.vue'
 
   export default {
     name: 'SimHeader',
     components: {
       SimHeaderTools,
       SimTabs,
+      SimMainView,
     },
     setup() {
       const store = AppModuleStore()

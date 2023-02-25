@@ -17,4 +17,6 @@ module.exports = {
   sim_collapse: 'sim_collapse',
   // 用户信息
   sim_user_info: 'sim_user_info',
+  // 选择的菜单
+  sim_tabs: 'sim_tabs',
 }

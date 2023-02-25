@@ -37,6 +37,7 @@
   import { asyncRoutes } from '@/router/routes'
   import { AppModuleStore } from '@/store/modules/app.modules'
   import { translateTitle } from '@/hooks/translate/index'
+  import { RouterModuleStore } from '@/store/modules/router.modules'
 
   export default {
     name: 'SimMenu',
@@ -54,6 +55,8 @@
     setup() {
       const route = useRoute()
       const store = AppModuleStore()
+      const routerStore = RouterModuleStore()
+
       const state = reactive({
         activeIndex: '/home/index',
         asyncRoutes,
@@ -64,6 +67,11 @@
         () => route.path,
         (val) => {
           state.activeIndex = val
+
+          const getRoute = route.matched.find((item) => item.path === val)
+          if (getRoute) {
+            routerStore.SET_CHECKED_ROUTER(getRoute)
+          }
         },
         {
           deep: true,

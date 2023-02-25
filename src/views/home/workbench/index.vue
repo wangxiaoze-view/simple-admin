@@ -1,5 +1,5 @@
 <template>
-  <div class="work-container">工作台</div>
+  <div class="work-main--container">工作台</div>
 </template>
 
 <script>

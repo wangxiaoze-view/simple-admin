@@ -1,25 +1,78 @@
 <template>
-  <div class="sim-tabs">
-    <el-tabs v-model="activeName" class="demo-tabs">
-      <el-tab-pane label="User" name="first">User</el-tab-pane>
-      <el-tab-pane label="Config" name="second">Config</el-tab-pane>
-      <el-tab-pane label="Role" name="third">Role</el-tab-pane>
-      <el-tab-pane label="Task" name="fourth">Task</el-tab-pane>
+  <div class="sim-tabs--container">
+    <el-tabs
+      v-model="activeName"
+      class="sim-tabs"
+      type="card"
+      @tab-change="tabChange"
+      @tab-remove="tabRemove"
+    >
+      <el-tab-pane
+        v-for="(item, index) in getCheckedRoute"
+        :key="item.path"
+        :label="translateTitle(item.meta.title)"
+        :name="item.path"
+        :closable="index !== 0"
+      >
+        <template #label>
+          <el-icon
+            v-if="item.meta.icon"
+            class="sim-tabs--icon"
+            :icon="item.meta.icon"
+          >
+            <component :is="item.meta.icon" />
+          </el-icon>
+          <span>{{ translateTitle(item.meta.title) }}</span>
+        </template>
+      </el-tab-pane>
     </el-tabs>
   </div>
 </template>
 
 <script>
-  import { toRefs, reactive } from 'vue'
+  import { toRefs, reactive, computed, watch } from 'vue'
+  import { useRoute, useRouter } from 'vue-router'
+  import { RouterModuleStore } from '@/store/modules/router.modules'
+  import { translateTitle } from '@/hooks/translate/index'
 
   export default {
     name: 'SimTabs',
     setup() {
+      const route = useRoute()
+      const router = useRouter()
+      const routerStore = RouterModuleStore()
       const state = reactive({
-        activeName: 'first',
+        activeName: '/home/workbench',
+        getCheckedRoute: computed(() => routerStore.GET_CHECKED_ROUTER),
+
+        tabChange: (name) => {
+          router.push(name)
+        },
+
+        tabRemove: (name) => {
+          const filter = (item) => item.path === name
+          const getRoute = state.getCheckedRoute.find(filter)
+          if (getRoute) {
+            router.removeRoute(getRoute.name)
+            routerStore.REMOVE_CHECKED_ROUTER(
+              state.getCheckedRoute.findIndex(filter)
+            )
+          }
+        },
       })
 
+      watch(
+        () => route.path,
+        (val) => {
+          state.activeName = val
+        },
+        {
+          deep: true,
+          immediate: true,
+        }
+      )
       return {
+        translateTitle,
         ...toRefs(state),
       }
     },
@@ -27,8 +80,32 @@
 </script>
 
 <style scoped lang="scss">
-  .sim-tabs {
-    padding: 0 20px;
-    background: #fff;
+  .sim-tabs--container {
+    :deep(.sim-tabs) {
+      // padding: 0 20px;
+      background: #fff;
+      box-shadow: 4px 2px 6px #ddd;
+      .el-tabs__header {
+        margin-bottom: 0;
+        border: none;
+
+        .el-tabs__nav {
+          border: none;
+
+          .el-tabs__item {
+            border: none;
+
+            &:hover,
+            &.is-active {
+              background-color: var(--el-color-primary-light-9);
+            }
+          }
+        }
+      }
+    }
+
+    .sim-tabs--icon {
+      margin-right: 4px;
+    }
   }
 </style>
