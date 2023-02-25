@@ -13,7 +13,8 @@
     <div class="sim-content">
       <sim-header />
       <sim-main-view
-        :style="{ 'padding-top': isHeaderFixed ? '101px' : '0' }"
+        class="sim-view--container"
+        :style="{ padding: isHeaderFixed ? '121px 20px 20px 20px' : '' }"
       />
     </div>
   </div>

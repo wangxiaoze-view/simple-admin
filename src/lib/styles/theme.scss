@@ -8,11 +8,16 @@ html, body , #app {
 
 
   .sim-router--view {
-    [class*=-main--container] {
+    &[class*=-view--container] {
       padding: 20px;
       // margin: 20px;
       // background: var(--el-color-white);
-      border-radius: 6px;
+      // transition: all .3s cubic-bezier(.645,.045,.355,1),border 0s,color .1s,font-size 0s;
+    }
+    [class*=-footer--container] {
+      padding: 20px;
+      margin-top: 20px;
+      background: var(--el-color-white);
       transition: all .3s cubic-bezier(.645,.045,.355,1),border 0s,color .1s,font-size 0s;
     }
   }
