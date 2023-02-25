@@ -68,7 +68,7 @@
   import { AppModuleStore } from '@/store/modules/app.modules'
   import { UserModuleStore } from '@/store/modules/user.modules'
   import { ToolsModuleStore } from '@/store/modules/tools.modules'
-  import FormErrorMsg from '@/components/FormErrorMsg/index.vue'
+  import FormErrorMsg from '@/components/SimFormErrorMsg/index.vue'
   import { translateTitle } from '@/hooks/translate'
   import Tools from '@/api/tools'
 

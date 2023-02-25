@@ -1,6 +1,6 @@
 <template>
   <el-row :gutter="20" class="sim-update">
-    <el-col :span="12" :offset="0">
+    <el-col :xs="24" :sm="24" :md="12" :offset="0">
       <el-card shadow="hover" class="sim-left sim-update--container">
         <template #header>
           <div class="sim-update--header">
@@ -12,9 +12,10 @@
             <el-tag>月</el-tag>
           </div>
         </template>
+        <sim-echart ref="echartRef" />
       </el-card>
     </el-col>
-    <el-col :span="12" :offset="0">
+    <el-col :xs="24" :sm="24" :md="12" :offset="0">
       <el-card shadow="hover" class="sim-right sim-update--container">
         <template #header>
           <div class="sim-update--header">
@@ -50,22 +51,27 @@
 <script>
   import { onMounted, ref } from 'vue'
   import Notice from '@/api/notice'
+  import SimEchart from '@/components/SimEchart'
 
   export default {
     name: 'SimUpdate',
+    components: {
+      SimEchart,
+    },
     setup() {
+      const echartRef = ref()
       const list = ref([])
       const getUpdateData = async () => {
         const { data = null } = await Notice.getUpdateList()
-        console.log(data)
         list.value = data.list || []
       }
 
       onMounted(() => {
+        echartRef.value?.initEchart('sim-update--echart')
         getUpdateData()
       })
 
-      return { list }
+      return { list, echartRef }
     },
   }
 </script>

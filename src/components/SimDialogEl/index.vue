@@ -10,7 +10,7 @@
   import { reactive, toRefs } from 'vue'
 
   export default {
-    name: 'DialogEl',
+    name: 'SimDialogEl',
     setup() {
       const state = reactive({
         visible: false,

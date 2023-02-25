@@ -14,7 +14,7 @@
   import { defineComponent } from 'vue'
 
   export default defineComponent({
-    name: 'FormErrorMsg',
+    name: 'SimFormErrorMsg',
     props: {
       title: {
         type: String,

@@ -142,7 +142,7 @@
     </el-dropdown>
 
     <template v-if="getDevice !== 'mobile'">
-      <dialog-el ref="errorRef">
+      <sim-dialog-el ref="errorRef">
         <el-table :data="getError" border style="width: 100%">
           <el-table-column type="index" width="50" align="center" />
           <el-table-column prop="url" label="地址" width="280" />
@@ -171,7 +171,7 @@
             </template>
           </el-table-column>
         </el-table>
-      </dialog-el>
+      </sim-dialog-el>
     </template>
 
     <template v-if="getIsLock">
@@ -189,7 +189,7 @@
   import { AppModuleStore } from '@/store/modules/app.modules'
   import { ErrorModuleStore } from '@/store/modules/error.modules'
   import { NoticeModuleStore } from '@/store/modules/notice.modules'
-  import DialogEl from '@/components/DialogEl/index.vue'
+  import SimDialogEl from '@/components/SimDialogEl/index.vue'
   import SimLock from '@/lib/components/SimLock/index.vue'
   import SimThemeDrawer from '@/lib/components/SimThemeDrawer/index.vue'
   import { simMessage } from '@/utils/ele'
@@ -198,7 +198,7 @@
   export default {
     name: 'SimHeaderTools',
     components: {
-      DialogEl,
+      SimDialogEl,
       SimLock,
       SimThemeDrawer,
     },

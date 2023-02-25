@@ -121,7 +121,7 @@
   import { FORM_RULES } from '../config/index'
   import { translateTitle } from '@/hooks/translate/index'
   import { UserModuleStore } from '@/store/modules/user.modules'
-  import FormErrorMsg from '@/components/FormErrorMsg/index.vue'
+  import FormErrorMsg from '@/components/SimFormErrorMsg/index.vue'
   import RandomCodeToCanvas from '@/utils/verificationCode/index'
   import { getNowTimeTitle } from '@/utils'
   import useLoading from '@/hooks/loading'
