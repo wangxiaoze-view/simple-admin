@@ -22,7 +22,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'analyse',
-        icon: 'chart-bar',
+        icon: 'fa-chart-line',
       },
     },
   ],

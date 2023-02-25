@@ -33,6 +33,7 @@ export default function setupInstall(app) {
   app.use(ElementPlus)
 
   setupFont(app)
+
   setupStore(app)
 
   setupRouter(app)

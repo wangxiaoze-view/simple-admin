@@ -4,7 +4,7 @@ export default {
   component: () => import('@/lib/layout/index.vue'),
   meta: {
     title: 'comp',
-    icon: 'Compass',
+    icon: 'fa-layer-group',
   },
   children: [
     {
@@ -13,7 +13,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'table',
-        icon: '',
+        icon: 'fa-table',
         fullPath: '/comp/table',
       },
     },
@@ -23,7 +23,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'transition',
-        icon: '',
+        icon: 'fa-meteor',
         fullPath: '/comp/transition',
       },
     },
@@ -33,7 +33,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'clip',
-        icon: '',
+        icon: 'fa-cut',
         fullPath: '/comp/clip',
       },
     },
@@ -43,7 +43,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'countAuto',
-        icon: '',
+        icon: 'fa-sort-amount-up-alt',
         fullPath: '/comp/countAuto',
       },
     },
@@ -53,7 +53,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'idea',
-        icon: '',
+        icon: 'fa-keyboard',
         fullPath: '/comp/idea',
       },
     },
@@ -63,7 +63,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'tree',
-        icon: '',
+        icon: 'fa-tree',
         fullPath: '/comp/tree',
       },
     },
@@ -73,7 +73,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'verify',
-        icon: '',
+        icon: 'fa-fingerprint',
         fullPath: '/comp/verify',
       },
     },
@@ -83,7 +83,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'qrcode',
-        icon: '',
+        icon: 'fa-qrcode',
         fullPath: '/comp/qrcode',
       },
     },

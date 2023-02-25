@@ -4,7 +4,7 @@ export default {
   component: () => import('@/lib/layout/index.vue'),
   meta: {
     title: 'permission',
-    icon: 'Key',
+    icon: 'fa-key',
   },
   children: [
     {
@@ -13,7 +13,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'role',
-        icon: '',
+        icon: 'fa-user-tag',
         fullPath: '/permission/role',
       },
     },
@@ -23,7 +23,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'menu',
-        icon: '',
+        icon: 'fa-bars',
         fullPath: '/permission/menu',
       },
     },

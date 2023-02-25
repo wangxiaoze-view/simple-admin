@@ -4,7 +4,7 @@ export default {
   component: () => import('@/lib/layout/index.vue'),
   meta: {
     title: 'fun',
-    icon: 'Connection',
+    icon: 'fa-drafting-compass',
   },
   children: [
     {
@@ -13,7 +13,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'flow',
-        icon: '',
+        icon: 'fa-share-alt',
         fullPath: '/fun/flow',
       },
     },
@@ -23,7 +23,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'echarts',
-        icon: '',
+        icon: 'chart-bar',
         fullPath: '/fun/echarts',
       },
     },
@@ -33,7 +33,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'print',
-        icon: '',
+        icon: 'fa-print',
         fullPath: '/fun/print',
       },
     },
@@ -43,7 +43,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'watermarking',
-        icon: '',
+        icon: 'fa-burn',
         fullPath: '/fun/watermarking',
       },
     },
@@ -53,7 +53,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'drag',
-        icon: '',
+        icon: 'fa-arrows-alt',
         fullPath: '/fun/drag',
       },
     },
@@ -63,7 +63,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'excel',
-        icon: '',
+        icon: 'fa-file-csv',
         fullPath: '/fun/excel',
       },
     },
@@ -73,7 +73,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'preview',
-        icon: '',
+        icon: 'fa-file-pdf',
         fullPath: '/fun/preview',
       },
     },
@@ -83,7 +83,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'fullScreen',
-        icon: '',
+        icon: 'fa-expand-arrows-alt',
         fullPath: '/fun/fullScreen',
       },
     },
@@ -93,7 +93,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'fullRipple',
-        icon: '',
+        icon: 'fa-water',
         fullPath: '/fun/fullRipple',
       },
     },
@@ -103,7 +103,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'upload',
-        icon: '',
+        icon: 'fa-cloud-upload',
         fullPath: '/fun/upload',
       },
     },
@@ -113,7 +113,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'down',
-        icon: '',
+        icon: 'fa-cloud-download',
         fullPath: '/fun/down',
       },
     },
@@ -123,7 +123,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'Web Socket',
-        icon: '',
+        icon: 'fa-ethernet',
         fullPath: '/fun/socket',
       },
     },

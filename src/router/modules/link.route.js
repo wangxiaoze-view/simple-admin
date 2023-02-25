@@ -4,7 +4,7 @@ export default {
   component: () => import('@/lib/layout/index.vue'),
   meta: {
     title: 'link',
-    icon: 'Link',
+    icon: 'fa-link',
   },
   children: [
     {
@@ -13,7 +13,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'md',
-        icon: '',
+        icon: 'fa-pen-alt',
         fullPath: '/link/md',
       },
     },

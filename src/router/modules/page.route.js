@@ -4,7 +4,7 @@ export default {
   component: import('@/lib/layout/index.vue'),
   meta: {
     title: 'page',
-    icon: 'Notification',
+    icon: 'fa-file-alt',
   },
   children: [
     {
@@ -13,7 +13,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'form',
-        icon: '',
+        icon: 'fa-shield-alt',
         fullPath: '/page/form',
       },
     },
@@ -23,7 +23,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'result',
-        icon: '',
+        icon: 'fa-thumbs-up',
         fullPath: '/page/result',
       },
     },
@@ -33,7 +33,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: '异常',
-        icon: '',
+        icon: 'fa-bug',
         fullPath: '/page/error',
       },
     },
@@ -43,7 +43,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'list',
-        icon: '',
+        icon: 'fa-list',
         fullPath: '/page/list',
       },
     },

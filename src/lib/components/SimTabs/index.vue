@@ -15,7 +15,11 @@
         :closable="index !== 0"
       >
         <template #label>
-          <font-awesome-icon icon="house" class="sim-icon" />
+          <SimIcon
+            v-if="item.meta.icon"
+            :icon="item.meta.icon"
+            class="sim-icon"
+          />
           <span>{{ translateTitle(item.meta.title) }}</span>
         </template>
       </el-tab-pane>
@@ -99,6 +103,11 @@
     }
 
     .sim-tabs--icon {
+      margin-right: 4px;
+    }
+
+    .el-sim--icon {
+      vertical-align: middle;
       margin-right: 4px;
     }
   }

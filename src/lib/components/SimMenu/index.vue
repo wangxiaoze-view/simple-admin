@@ -10,8 +10,14 @@
     <template v-for="(route, index) in asyncRoutes" :key="index">
       <el-sub-menu :index="route.path">
         <template #title>
-          <font-awesome-icon :icon="route.meta.icon" class="sim-icon" />
-          <span>{{ translateTitle(route.meta.title) }}</span>
+          <SimIcon
+            v-if="route.meta.icon"
+            :icon="route.meta.icon"
+            class="sim-icon"
+          />
+          <span v-show="!isCollapse">
+            {{ translateTitle(route.meta.title) }}
+          </span>
         </template>
 
         <el-menu-item
@@ -19,7 +25,15 @@
           :key="route.path + '/' + item.path"
           :index="route.path + '/' + item.path"
         >
-          <font-awesome-icon :icon="item.meta.icon" class="sim-icon" />
+          <SimIcon
+            v-if="item.meta.icon"
+            :icon="item.meta.icon"
+            class="sim-icon"
+          />
+
+          <!-- <el-icon>
+            <SimIcon :is="item.meta.icon" />
+          </el-icon> -->
           <span>{{ translateTitle(item.meta.title) }}</span>
         </el-menu-item>
       </el-sub-menu>

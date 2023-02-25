@@ -8,15 +8,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import {
-  faHomeAlt,
-  faBriefcase,
-  faChartBar,
-} from '@fortawesome/free-solid-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faHomeAlt, faBriefcase, faChartBar)
-
+library.add(fas)
 /* add icons to the library */
 export function setupFont(app) {
-  app.component('FontAwesomeIcon', FontAwesomeIcon)
+  app.component('SimIcon', FontAwesomeIcon)
 }
