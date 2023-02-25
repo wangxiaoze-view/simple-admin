@@ -37,6 +37,8 @@
       </el-col>
     </el-row>
     <sim-tabs />
+
+    <router-view />
   </div>
 </template>
 

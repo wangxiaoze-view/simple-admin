@@ -13,7 +13,7 @@ export default {
       component: () => import('@/views/home/workbench/index.vue'),
       meta: {
         title: 'workbench',
-        icon: '',
+        icon: 'HomeFilled',
         noCloseTab: true,
       },
     },
@@ -23,7 +23,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'analyse',
-        icon: '',
+        icon: 'HomeFilled',
       },
     },
   ],

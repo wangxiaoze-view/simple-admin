@@ -6,19 +6,19 @@
     direction="ltr"
     @close="setCollapse"
   >
-    <sim-menu :is-collapse="false" />
+    <sim-aside :is-collapse="false" class="sim-aside--drawer" />
   </el-drawer>
 </template>
 
 <script>
   import { defineComponent, reactive, computed, toRefs } from 'vue'
   import { AppModuleStore } from '@/store/modules/app.modules'
-  import SimMenu from '@/lib/components/SimMenu/index.vue'
+  import SimAside from '@/lib/components/SimAside/index.vue'
 
   export default defineComponent({
     name: 'SimDrawerMenu',
     components: {
-      SimMenu,
+      SimAside,
     },
     setup() {
       const store = AppModuleStore()

@@ -49,6 +49,10 @@ html, body , #app {
         overflow: hidden;
         background-color: #fff;
         transition: width .3s ;
+
+        &.sim-aside--drawer {
+          width: $sim-left-menu-width !important;
+        }
       
         &--title {
           min-height: $sim-logo-height;

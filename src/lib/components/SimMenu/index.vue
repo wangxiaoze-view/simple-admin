@@ -1,12 +1,13 @@
 <template>
   <el-menu
-    default-active="2"
+    :default-active="activeIndex"
     class="sim-menu"
     :mode="mode"
     :collapse="isCollapse"
     :collapse-transition="false"
+    :router="true"
   >
-    <template v-for="(route, index) in asyncRoutes" :key="index + route.name">
+    <template v-for="(route, index) in asyncRoutes" :key="index">
       <el-sub-menu :index="route.path">
         <template #title>
           <el-icon v-if="route.meta.icon" :icon="route.meta.icon">
@@ -17,10 +18,13 @@
 
         <el-menu-item
           v-for="item in route.children"
-          :key="item.meta.fullPath"
-          :index="item.meta.fullPath"
+          :key="route.path + '/' + item.path"
+          :index="route.path + '/' + item.path"
         >
-          {{ translateTitle(item.meta.title) }}
+          <el-icon v-if="item.meta.icon" :icon="item.meta.icon">
+            <component :is="item.meta.icon" />
+          </el-icon>
+          <span>{{ translateTitle(item.meta.title) }}</span>
         </el-menu-item>
       </el-sub-menu>
     </template>
@@ -28,7 +32,8 @@
 </template>
 
 <script>
-  import { computed, reactive, toRefs } from 'vue'
+  import { computed, reactive, toRefs, watch } from 'vue'
+  import { useRoute } from 'vue-router'
   import { asyncRoutes } from '@/router/routes'
   import { AppModuleStore } from '@/store/modules/app.modules'
   import { translateTitle } from '@/hooks/translate/index'
@@ -47,11 +52,24 @@
       },
     },
     setup() {
+      const route = useRoute()
       const store = AppModuleStore()
       const state = reactive({
+        activeIndex: '/home/index',
         asyncRoutes,
         getTheme: computed(() => store.GET_THEME),
       })
+
+      watch(
+        () => route.path,
+        (val) => {
+          state.activeIndex = val
+        },
+        {
+          deep: true,
+          immediate: true,
+        }
+      )
 
       return {
         translateTitle,
