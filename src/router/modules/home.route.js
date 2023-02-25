@@ -4,7 +4,7 @@ export default {
   component: () => import('@/lib/layout/index.vue'),
   meta: {
     title: 'home',
-    icon: 'HomeFilled',
+    icon: 'home-alt',
   },
   children: [
     {
@@ -13,8 +13,7 @@ export default {
       component: () => import('@/views/home/workbench/index.vue'),
       meta: {
         title: 'workbench',
-        icon: 'HomeFilled',
-        closable: true,
+        icon: 'briefcase',
       },
     },
     {
@@ -23,7 +22,7 @@ export default {
       component: () => import('@/views/home/analyse/index.vue'),
       meta: {
         title: 'analyse',
-        icon: 'HomeFilled',
+        icon: 'chart-bar',
       },
     },
   ],

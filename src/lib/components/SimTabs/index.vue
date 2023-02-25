@@ -15,13 +15,7 @@
         :closable="index !== 0"
       >
         <template #label>
-          <el-icon
-            v-if="item.meta.icon"
-            class="sim-tabs--icon"
-            :icon="item.meta.icon"
-          >
-            <component :is="item.meta.icon" />
-          </el-icon>
+          <font-awesome-icon icon="house" class="sim-icon" />
           <span>{{ translateTitle(item.meta.title) }}</span>
         </template>
       </el-tab-pane>

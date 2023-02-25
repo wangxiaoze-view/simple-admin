@@ -25,8 +25,12 @@
                 separator="/"
                 class="hidden-xs-only"
               >
-                <el-breadcrumb-item>首页</el-breadcrumb-item>
-                <el-breadcrumb-item>仪表盘</el-breadcrumb-item>
+                <el-breadcrumb-item>
+                  {{ translateTitle(getTabs.parent) }}
+                </el-breadcrumb-item>
+                <el-breadcrumb-item>
+                  {{ translateTitle(getTabs.child) }}
+                </el-breadcrumb-item>
               </el-breadcrumb>
             </el-col>
             <el-col :xs="12" :sm="14" :md="9" :lg="9" :xl="9">
@@ -46,8 +50,10 @@
   import { computed } from 'vue'
   import SimHeaderTools from '@/lib/components/SimHeaderTools/index.vue'
   import { AppModuleStore } from '@/store/modules/app.modules'
+  import { RouterModuleStore } from '@/store/modules/router.modules'
   import SimTabs from '@/lib/components/SimTabs/index.vue'
   import SimMainView from '@/lib/components/SimMainView/index.vue'
+  import { translateTitle } from '@/hooks/translate/index'
 
   export default {
     name: 'SimHeader',
@@ -58,14 +64,18 @@
     },
     setup() {
       const store = AppModuleStore()
+      const routerStore = RouterModuleStore()
       const zoomMenu = () => store.TOGGLE_COLLAPSE()
       const getDevice = computed(() => store.GET_DEVICE)
       const getTheme = computed(() => store.GET_THEME)
+      const getTabs = computed(() => routerStore.GET_BREADCURUMB)
       return {
         iconSize: 16,
         zoomMenu,
         getDevice,
         getTheme,
+        getTabs,
+        translateTitle,
       }
     },
   }

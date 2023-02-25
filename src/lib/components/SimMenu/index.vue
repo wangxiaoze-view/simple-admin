@@ -10,9 +10,7 @@
     <template v-for="(route, index) in asyncRoutes" :key="index">
       <el-sub-menu :index="route.path">
         <template #title>
-          <el-icon v-if="route.meta.icon" :icon="route.meta.icon">
-            <component :is="route.meta.icon" />
-          </el-icon>
+          <font-awesome-icon :icon="route.meta.icon" class="sim-icon" />
           <span>{{ translateTitle(route.meta.title) }}</span>
         </template>
 
@@ -21,9 +19,7 @@
           :key="route.path + '/' + item.path"
           :index="route.path + '/' + item.path"
         >
-          <el-icon v-if="item.meta.icon" :icon="item.meta.icon">
-            <component :is="item.meta.icon" />
-          </el-icon>
+          <font-awesome-icon :icon="item.meta.icon" class="sim-icon" />
           <span>{{ translateTitle(item.meta.title) }}</span>
         </el-menu-item>
       </el-sub-menu>
@@ -61,6 +57,32 @@
         activeIndex: '/home/index',
         asyncRoutes,
         getTheme: computed(() => store.GET_THEME),
+
+        handlerRoute: (getRoute) => {
+          if (!state.activeIndex) return
+
+          for (let i = 0; i < state.asyncRoutes.length; i++) {
+            const item = state.asyncRoutes[i]
+
+            let parent = ''
+            let child = ''
+            if (item.name === getRoute.name) {
+              parent = item.meta?.title
+            }
+
+            const getROute = item.children.find(
+              (route) => route.name === getRoute.name
+            )
+            if (getROute) {
+              parent = item.meta.title
+              child = getROute.meta.title
+              routerStore.SET_BREADCURUMB({
+                parent,
+                child,
+              })
+            }
+          }
+        },
       })
 
       watch(
@@ -70,6 +92,7 @@
 
           const getRoute = route.matched.find((item) => item.path === val)
           if (getRoute) {
+            state.handlerRoute(getRoute)
             routerStore.SET_CHECKED_ROUTER(getRoute)
           }
         },

@@ -8,10 +8,12 @@ const { checkedRoute = [] } = getLocalStorage(sim_tabs)
 export const RouterModuleStore = defineStore('RouterModuleStore', {
   state: () => ({
     checkedRoute: checkedRoute || [],
+    breadcrumb: {},
   }),
 
   getters: {
     GET_CHECKED_ROUTER: (state) => state.checkedRoute,
+    GET_BREADCURUMB: (state) => state.breadcrumb,
   },
   actions: {
     SET_CHECKED_ROUTER(route) {
@@ -25,6 +27,10 @@ export const RouterModuleStore = defineStore('RouterModuleStore', {
           JSON.stringify({ checkedRoute: this.checkedRoute })
         )
       }
+    },
+
+    SET_BREADCURUMB(params) {
+      this.breadcrumb = params
     },
 
     REMOVE_CHECKED_ROUTER(index) {

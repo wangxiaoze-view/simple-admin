@@ -12,6 +12,8 @@ import { setupStore } from '@/store'
 import { setupRouter } from '@/router'
 // 拦截错误日志
 import { setupErrorLog } from '@/lib/plugins/errorLog'
+// 字体
+import { setupFont } from '@/lib/plugins/font'
 // ele-css
 import 'element-plus/dist/index.css'
 import 'element-plus/theme-chalk/display.css'
@@ -29,6 +31,8 @@ export default function setupInstall(app) {
   setupErrorLog(app)
 
   app.use(ElementPlus)
+
+  setupFont(app)
   setupStore(app)
 
   setupRouter(app)
