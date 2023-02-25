@@ -10,7 +10,7 @@ $sim-color-warning: #ffba00;
 $sim-color-danger: #ff6463;
 $sim-color-error: #ff6463;
 $sim-color-grey: rgba(0, 0, 0, 0.65);
-$sim-color-background: #eaf4ff;
+$sim-color-background: #f0f2f5;
 
 
 $sim-color-text-primary: #303133;
@@ -38,13 +38,13 @@ $sim-menu-active-color: #8b77ea;
 // logo 的高度
 $sim-logo-height: 60px;
 // 左侧导航未折叠的宽度
-$sim-left-menu-width: 260px;
+$sim-left-menu-width: 220px;
 // 右侧内容区域未折叠的宽度
 $sim-right-content-width: calc(100% - #{$sim-left-menu-width});
 // 左侧导航已折叠的宽度
-$sim-left-menu-min-width: 64px;
+$sim-left-menu-min-width: 60px;
 // 右侧内容区域已折叠的宽度
-$sim-right-content-min-width: calc(100% - #{$sim-left-menu-width});
+$sim-right-content-min-width: calc(100% - #{$sim-left-menu-min-width});
 //默认动画
 $sim-transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), border 0s,
 color 0.2s, font-size 0s;

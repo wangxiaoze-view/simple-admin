@@ -69,10 +69,6 @@
 
 <style scoped lang="scss">
   .sim-header {
-    width: calc(100% - 220px);
-    position: fixed;
-    top: 0;
-    box-sizing: border-box;
     //z-index: 1;
 
     &--container {

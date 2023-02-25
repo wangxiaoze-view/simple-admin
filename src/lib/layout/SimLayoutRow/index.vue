@@ -2,7 +2,7 @@
   <div
     class="sim-layout-row"
     :class="{
-      'is-fixed': isHeaderFixed,
+      'is-fixed-header': isHeaderFixed,
       'is-tabs': isTabs,
       'is-collapse': collapse,
       'is-mobile': device === 'mobile',

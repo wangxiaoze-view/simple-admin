@@ -53,6 +53,15 @@ module.exports = defineConfig({
     open: false,
     historyApiFallback: true,
     allowedHosts: 'all',
+    proxy: {
+      '/apiImage': {
+        target: 'https://api.gmit.vip/Api/DmImg',
+        changeOrigin: true, // 是否允许跨越
+        pathRewrite: {
+          '^/apiImage': '/apiImage', // 重写,
+        },
+      },
+    },
   },
   // 第三方插件配置 https://www.npmjs.com/package/vue-cli-plugin-style-resources-loader
   pluginOptions: {},

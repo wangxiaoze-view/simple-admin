@@ -1,0 +1,120 @@
+
+html, body , #app {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  height: 100%;
+  user-select: none;
+
+
+  .sim-router--view {
+    [class*=-main--container] {
+      padding: 20px;
+      background: var(--el-color-white);
+      transition: all .3s cubic-bezier(.645,.045,.355,1),border 0s,color .1s,font-size 0s;
+    }
+  }
+
+  #nprogress .bar {
+    background: var(--el-color-primary) !important; 
+    border-radius: 50px;
+
+    .peg {
+      box-shadow: none;
+    }
+  }
+
+
+  .sim-admin--container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    // 常规布局
+    .sim-layout-ordinary {
+      height: 100%;
+
+      .el-menu-item.is-active {
+        background: var(--el-color-primary-light-9);
+      }
+
+      .sim-aside {
+        width: $sim-left-menu-width;
+        height: 100%;
+        position: fixed;
+        font-size: 0;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        background-color: #fff;
+        transition: width .3s ;
+      
+        &--title {
+          min-height: $sim-logo-height;
+          line-height: $sim-logo-height;
+          text-align: center;
+          transition: all 0.3s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 20px;
+          color: rgb(25, 26, 35);
+          font-weight: 600;
+        }
+
+        &--menu {
+          .sim-scroll--bar {
+            height: calc(100vh - $sim-logo-height);
+          }
+        }
+      }
+
+      .sim-content {
+        min-height: 100%;
+        margin-left: $sim-left-menu-width;
+        position: relative;
+        background: $sim-color-background;
+        width: $sim-right-content-width;
+      }
+
+      // 缩小菜单
+      &.is-collapse {
+        .sim-aside {
+          width: $sim-left-menu-min-width;
+        }
+        .sim-content {
+          margin-left: $sim-left-menu-min-width;
+          width: $sim-right-content-min-width;
+        }
+        &.is-fixed-header {
+          .sim-header {
+            width: $sim-right-content-min-width;
+          }
+        }
+      }
+
+      // 是否固定头部
+      &.is-fixed-header {
+        .sim-header {
+          position: fixed;
+          top: 0;
+          box-sizing: border-box;
+          width: $sim-right-content-width;
+        }
+      }
+
+      // 是否显示手机模式
+      &.is-mobile {
+        .sim-content {
+          margin-left: 0;
+          width: 100%;
+          .sim-header {
+            width: 100%;
+          }
+        }
+      }
+
+    }
+  }
+}
