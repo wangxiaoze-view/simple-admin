@@ -1,6 +1,6 @@
 <template>
   <el-row :gutter="20" class="sim-update">
-    <el-col :xs="24" :sm="24" :md="12" :offset="0">
+    <el-col :xs="24" :sm="24" :md="16" :offset="0">
       <el-card shadow="hover" class="sim-left sim-update--container">
         <template #header>
           <div class="sim-update--header">
@@ -15,7 +15,7 @@
         <sim-echart ref="echartRef" />
       </el-card>
     </el-col>
-    <el-col :xs="24" :sm="24" :md="12" :offset="0">
+    <el-col :xs="24" :sm="24" :md="8" :offset="0">
       <el-card shadow="hover" class="sim-right sim-update--container">
         <template #header>
           <div class="sim-update--header">
@@ -82,7 +82,7 @@
       margin-top: 14px;
 
       :deep(.el-card__body) {
-        height: 340px;
+        height: 440px;
       }
       .sim-update--header {
         display: flex;

@@ -87,6 +87,7 @@
       margin-top: -40px;
       width: 600px;
       height: 400px;
+      margin-left: -70px;
     }
     &--title {
       font-size: 22px;

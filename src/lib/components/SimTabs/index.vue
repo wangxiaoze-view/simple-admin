@@ -50,11 +50,19 @@
         tabRemove: (name) => {
           const filter = (item) => item.path === name
           const getRoute = state.getCheckedRoute.find(filter)
+
           if (getRoute) {
             router.removeRoute(getRoute.name)
             routerStore.REMOVE_CHECKED_ROUTER(
               state.getCheckedRoute.findIndex(filter)
             )
+
+            if (name === state.activeName) {
+              state.activeName =
+                routerStore.GET_CHECKED_ROUTER[
+                  routerStore.GET_CHECKED_ROUTER.length - 1
+                ].path
+            }
           }
         },
       })

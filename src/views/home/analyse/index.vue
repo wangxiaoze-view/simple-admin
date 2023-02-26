@@ -1,5 +1,5 @@
 <template>
-  <div className="analyse-container">分析台</div>
+  <div className="analyse-main-s-container">分析台</div>
 </template>
 
 <script>
