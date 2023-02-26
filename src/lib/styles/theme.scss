@@ -244,6 +244,9 @@ html, body , #app {
           .sim-scroll--bar {
             height: calc(100vh - $sim-logo-height);
           }
+          .el-sub-menu.is-active {
+            background: var(--el-color-primary-light-9);
+          }
         }
       }
       .sim-header {

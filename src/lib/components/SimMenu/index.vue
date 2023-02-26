@@ -5,12 +5,40 @@
     :mode="mode"
     :collapse="isCollapse"
     :collapse-transition="false"
-    :router="true"
+    router
   >
     <template v-for="(route, index) in asyncRoutes" :key="index">
-      <el-sub-menu :index="route.path">
-        <template #title>
-          <SimIcon
+      <template v-if="!route.meta.isNotChild && route.children">
+        <el-sub-menu :index="route.path">
+          <template #title>
+            <sim-icon
+              v-if="route.meta.icon"
+              :icon="route.meta.icon"
+              class="sim-icon"
+            />
+            <span v-show="!isCollapse">
+              {{ translateTitle(route.meta.title) }}
+            </span>
+          </template>
+
+          <el-menu-item
+            v-for="item in route.children"
+            :key="route.path + '/' + item.path"
+            :index="route.path + '/' + item.path"
+          >
+            <sim-icon
+              v-if="item.meta.icon"
+              :icon="item.meta.icon"
+              class="sim-icon"
+            />
+            <span>{{ translateTitle(item.meta.title) }}</span>
+          </el-menu-item>
+        </el-sub-menu>
+      </template>
+
+      <template v-if="route.meta.isNotChild && route.children">
+        <el-menu-item :index="route.path">
+          <sim-icon
             v-if="route.meta.icon"
             :icon="route.meta.icon"
             class="sim-icon"
@@ -18,25 +46,8 @@
           <span v-show="!isCollapse">
             {{ translateTitle(route.meta.title) }}
           </span>
-        </template>
-
-        <el-menu-item
-          v-for="item in route.children"
-          :key="route.path + '/' + item.path"
-          :index="route.path + '/' + item.path"
-        >
-          <SimIcon
-            v-if="item.meta.icon"
-            :icon="item.meta.icon"
-            class="sim-icon"
-          />
-
-          <!-- <el-icon>
-            <SimIcon :is="item.meta.icon" />
-          </el-icon> -->
-          <span>{{ translateTitle(item.meta.title) }}</span>
         </el-menu-item>
-      </el-sub-menu>
+      </template>
     </template>
   </el-menu>
 </template>
@@ -84,16 +95,18 @@
               parent = item.meta?.title
             }
 
-            const getROute = item.children.find(
-              (route) => route.name === getRoute.name
-            )
-            if (getROute) {
-              parent = item.meta.title
-              child = getROute.meta.title
-              routerStore.SET_BREADCURUMB({
-                parent,
-                child,
-              })
+            if (item.children) {
+              const getROute = item.children.find(
+                (route) => route.name === getRoute.name
+              )
+              if (getROute) {
+                parent = item.meta.title
+                child = getROute.meta.title
+                routerStore.SET_BREADCURUMB({
+                  parent,
+                  child,
+                })
+              }
             }
           }
         },

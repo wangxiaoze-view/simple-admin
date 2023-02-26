@@ -5,6 +5,8 @@ import FunRoute from '../modules/fun.route'
 import PageRoute from '../modules/page.route'
 import LinkRoute from '../modules/link.route'
 import ComponentRoute from '../modules/component.route'
+// 单独展示，
+// import LoginRoute from '../modules/login.route'
 
 export const constantRoutes = [
   {
@@ -30,4 +32,5 @@ export const asyncRoutes = [
   PageRoute,
   LinkRoute,
   ComponentRoute,
+  // LoginRoute,
 ]
