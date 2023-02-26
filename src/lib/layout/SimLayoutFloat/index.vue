@@ -12,6 +12,7 @@
     <sim-drawer-menu v-if="device === 'mobile'" />
     <div class="sim-content">
       <sim-header />
+      <sim-main-view class="sim-view--container" />
     </div>
   </div>
 </template>
@@ -20,6 +21,7 @@
   import SimAside from '@/lib/components/SimAside/index.vue'
   import SimDrawerMenu from '@/lib/components/SimDrawerMenu/index.vue'
   import SimHeader from '@/lib/components/SimHeader/index.vue'
+  import SimMainView from '@/lib/components/SimMainView/index.vue'
 
   export default {
     name: 'SimLayoutFloat',
@@ -27,6 +29,7 @@
       SimAside,
       SimDrawerMenu,
       SimHeader,
+      SimMainView,
     },
     props: {
       device: {

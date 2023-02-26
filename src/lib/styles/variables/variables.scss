@@ -42,7 +42,7 @@ $sim-left-menu-width: 220px;
 // 右侧内容区域未折叠的宽度
 $sim-right-content-width: calc(100% - #{$sim-left-menu-width});
 // 左侧导航已折叠的宽度
-$sim-left-menu-min-width: 60px;
+$sim-left-menu-min-width: 64px;
 // 右侧内容区域已折叠的宽度
 $sim-right-content-min-width: calc(100% - #{$sim-left-menu-min-width});
 //默认动画
