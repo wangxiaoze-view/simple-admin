@@ -12,10 +12,7 @@
     <sim-drawer-menu v-if="device === 'mobile'" />
     <div class="sim-content">
       <sim-header />
-      <sim-main-view
-        class="sim-view--container"
-        :style="{ padding: isHeaderFixed ? '121px 20px 20px 20px' : '' }"
-      />
+      <sim-main-view class="sim-view--container" />
     </div>
   </div>
 </template>

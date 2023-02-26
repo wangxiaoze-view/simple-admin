@@ -4,7 +4,7 @@
       <el-col :lg="10" class="hidden-md-and-down">
         <img
           class="sim-welcome--image"
-          :src="require('@/assets/images/welcome.svg')"
+          :src="require('@/assets/images/logo_cover.svg')"
         />
       </el-col>
       <el-col :xs="24" :sm="24" :md="24" :lg="14">
@@ -85,6 +85,8 @@
     }
     &--image {
       margin-top: -40px;
+      width: 600px;
+      height: 400px;
     }
     &--title {
       font-size: 22px;

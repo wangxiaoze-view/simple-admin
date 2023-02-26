@@ -107,6 +107,8 @@ html, body , #app {
           .sim-header {
             width: $sim-right-content-min-width;
           }
+
+          
         }
       }
 
@@ -118,6 +120,9 @@ html, body , #app {
           box-sizing: border-box;
           width: $sim-right-content-width;
           z-index: 99;
+        }
+        .sim-view--container {
+          padding: 121px 20px 20px 20px;
         }
       }
 
@@ -133,5 +138,77 @@ html, body , #app {
       }
 
     }
+
+    // 横向布局
+    .sim-layout-row {
+      height: 100%;
+      .sim-content {
+        min-height: 100%;
+        margin-left: 0;
+        position: relative;
+        background: $sim-color-background;
+
+        .sim-header {
+          width: 100%;
+          background-color: #fff;
+          box-shadow: 4px 2px 6px #ddd;
+
+          &--content {
+            width: 90%;
+            margin: 0 auto;
+          }
+
+          .sim-tabs--container {
+            width: 90%;
+            margin: 10px auto 0;
+            .sim-tabs {
+              background: none;
+              box-shadow: none;
+            }
+          }
+
+          .sim-aside--title {
+            display: flex;
+            align-items: center;
+            transition: all 0.3s;
+            display: flex;
+            justify-content: flex-start;
+            font-size: 20px;
+            color: rgb(25, 26, 35);
+            font-weight: 600;
+            .sim-logo {
+              height: $sim-logo-height;
+              margin-right: 4px;
+            }
+          }
+        }
+
+       
+
+        .sim-router--view {
+          width: 90%;
+          margin: 0 auto;
+          padding: 20px;
+          
+        }
+
+        
+      }
+
+      &.is-fixed-header {
+        .sim-header {
+          position: fixed;
+          top: 0;
+          box-sizing: border-box;
+          z-index: 99;
+        }
+
+        .sim-view--container {
+          padding: 131px 20px 20px 20px;
+        }
+      }
+    }
   }
 }
+
+
